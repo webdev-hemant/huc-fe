@@ -1,0 +1,10 @@
+@import "@/styles/base.module.scss";
+
+.navWrapper {
+  .titleName {
+    // font-family: $font_lobster;
+    font-family: $font_caveat;
+    font-weight: 900;
+    font-size: 2rem;
+  }
+}
