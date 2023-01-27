@@ -1,0 +1,31 @@
+@import "@/styles/base.module.scss";
+
+.navWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  .imgWrapper {
+    margin: 1rem 0 0 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    .img {
+    }
+  }
+  .navListContainer {
+    height: 7.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    .titleName {
+      // font-family: $font_lobster;
+      font-family: $font_caveat;
+      font-weight: 900;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  }
+}

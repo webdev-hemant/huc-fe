@@ -1,18 +1,27 @@
-import './globals.css'
+"use client";
+import Header from "@/components/Header/Header";
+import DesktopNavbar from "@/components/Navbar/DesktopNavbar";
+import MobileNavbar from "@/components/Navbar/MobileNavbar";
+import IsMobile from "@/customHooks/isMobileHook/IsMobile";
+import "@/styles/globals.css";
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
+  const { isMobile, isTablet } = IsMobile();
+
+  console.log({ isTablet });
   return (
     <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
       <head />
-      <body>{children}</body>
+      <body>
+        <Header>
+          {isMobile || isTablet ? <MobileNavbar /> : <DesktopNavbar />}
+        </Header>
+        <main>{children}</main>
+      </body>
     </html>
-  )
+  );
 }
