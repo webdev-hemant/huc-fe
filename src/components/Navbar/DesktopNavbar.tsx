@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import logo from "@/images/study-logo.jpg";
+import logo from "@/images/og-logo.png";
 import { NavArray } from "@/constants/NavbarLinks";
 import styles from "./desktopNavbar.module.scss";
 
@@ -12,8 +12,8 @@ const DesktopNavbar = () => {
           className={styles.img}
           src={logo}
           alt=""
-          width={100}
-          height={100}
+          width={50}
+          height={50}
         />
       </div>
       <ul className={styles.navListContainer}>

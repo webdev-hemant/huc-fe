@@ -23,6 +23,7 @@ export default function Home() {
         </div>
         <div className={styles.introImgWrapper}>
           <Image src={illustrator} alt="" />
+          <div className={styles.dropShadow} />
         </div>
       </div>
       <div className={styles.secondSection}></div>

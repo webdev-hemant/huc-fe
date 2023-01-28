@@ -1,6 +1,6 @@
 "use client";
 import { NavArray } from "@/constants/NavbarLinks";
-import logo from "@/images/study-logo.jpg";
+import logo from "@/images/og-logo.png";
 import Image from "next/image";
 import React, { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
@@ -18,8 +18,8 @@ const MobileNavbar = () => {
             className={styles.img}
             src={logo}
             alt=""
-            width={100}
-            height={100}
+            width={50}
+            height={50}
           />
         </div>
         {showNav ? (
