@@ -1,6 +1,7 @@
 @import "@/styles/base.module.scss";
 
 .pageWrapper {
+  overflow: hidden;
   .firstSection {
     height: calc(100vh - 7.25rem);
     padding: 2rem 5rem;
