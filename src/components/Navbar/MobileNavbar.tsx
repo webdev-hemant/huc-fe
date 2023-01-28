@@ -24,13 +24,19 @@ const MobileNavbar = () => {
         </div>
         {showNav ? (
           <GiHamburgerMenu
-            onClick={() => setShowNav(false)}
+            onClick={() => {
+              document.body.style.overflow = "hidden";
+              setShowNav(false);
+            }}
             style={{ width: "40px", height: "40px" }}
             className={styles.crossIcon}
           />
         ) : (
           <RxCross2
-            onClick={() => setShowNav(true)}
+            onClick={() => {
+              document.body.style.overflow = "unset";
+              setShowNav(true);
+            }}
             style={{ width: "50px", height: "50px", stroke: "blue" }}
             className={styles.crossIcon}
           />
