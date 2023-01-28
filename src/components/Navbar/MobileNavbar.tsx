@@ -1,6 +1,6 @@
 "use client";
 import { NavArray } from "@/constants/NavbarLinks";
-import logo from "@/images/huc-logo-new.png";
+import logo from "@/images/study-logo.jpg";
 import Image from "next/image";
 import React, { useState } from "react";
 import { RxCross2 } from "react-icons/rx";

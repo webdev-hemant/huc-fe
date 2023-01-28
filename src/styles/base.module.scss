@@ -4,11 +4,11 @@ $font_caveat: "Caveat", cursive;
 $font_rowdies: "Rowdies", cursive;
 
 // color pallets
-$color_1: #ffebb7;
-$color_2: #ad8e70;
-$color_3: #ff6e31;
-$color_4: #243763;
-// $color_5: #;
+$color_1: #fff2f2;
+$color_2: #e5e0ff;
+$color_3: #8ea7e9;
+$color_4: #7286d3;
+$color_5: #8dcbe6;
 // alpha opacity
 $color_1_05: rgba(
   $color: $color_1,
@@ -24,5 +24,9 @@ $color_3_05: rgba(
 );
 $color_4_05: rgba(
   $color: $color_4,
+  $alpha: 0.5,
+);
+$color_5_05: rgba(
+  $color: $color_5,
   $alpha: 0.5,
 );

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import logo from "@/images/huc-logo-new.png";
+import logo from "@/images/study-logo.jpg";
 import { NavArray } from "@/constants/NavbarLinks";
 import styles from "./desktopNavbar.module.scss";
 
@@ -18,7 +18,7 @@ const DesktopNavbar = () => {
       </div>
       <ul className={styles.navListContainer}>
         {NavArray.map((item: string) => (
-          <li key={item} className={styles.titleName}>
+          <li key={item} className={`${styles.titleName} ${styles.active}`}>
             {item}
           </li>
         ))}

@@ -8,7 +8,7 @@ const Header = () => {
     <header>
       <DesktopNavbar />
       <MobileNavbar />
-      Header
+      {/* Header */}
     </header>
   );
 };
