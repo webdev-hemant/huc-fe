@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 
 const IsMobile = () => {
-  const [screenSize, setScreenSize] = useState<number>(window.innerWidth);
+  const [screenSize, setScreenSize] = useState<number>(0);
 
   useEffect(() => {
     window.addEventListener("resize", () => {
-      setScreenSize(window.innerWidth);
+      setScreenSize(window?.innerWidth);
     });
     return () =>
       window.removeEventListener("resize", () =>
-        setScreenSize(window.innerWidth)
+        setScreenSize(window?.innerWidth)
       );
   }, []);
 

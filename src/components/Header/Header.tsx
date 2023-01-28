@@ -1,14 +1,14 @@
+"use client";
 import React from "react";
+import DesktopNavbar from "../Navbar/DesktopNavbar";
+import MobileNavbar from "../Navbar/MobileNavbar";
 // import styles from "./header.module.scss";
 
-type IProps = {
-  children: React.ReactNode;
-};
-
-const Header = ({ children }: IProps) => {
+const Header = () => {
   return (
     <header>
-      {children}
+      <DesktopNavbar />
+      <MobileNavbar />
       Header
     </header>
   );
