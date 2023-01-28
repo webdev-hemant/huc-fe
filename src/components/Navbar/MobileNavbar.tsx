@@ -12,7 +12,7 @@ const MobileNavbar = () => {
   console.log({ showNav });
   return (
     <nav className={styles.navWrapper}>
-      <div className={styles.mobileNav}>
+      <div className={`${styles.mobileNav} ${showNav || styles.navOpen}`}>
         <div className={styles.imgWrapper}>
           <Image
             className={styles.img}
@@ -29,7 +29,7 @@ const MobileNavbar = () => {
               setShowNav(false);
             }}
             style={{ width: "40px", height: "40px" }}
-            className={styles.crossIcon}
+            className={styles.hamBurger}
           />
         ) : (
           <RxCross2

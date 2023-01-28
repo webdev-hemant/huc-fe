@@ -10,6 +10,14 @@
     align-items: center;
     justify-content: space-between;
     animation: all 0.5s ease-in;
+    background-color: #000;
+    &.navOpen {
+      background-color: #fff;
+    }
+    .hamBurger {
+      animation: all 0.5s ease-in;
+      fill: #fff;
+    }
     .crossIcon {
       animation: all 0.5s ease-in;
     }
