@@ -4,5 +4,5 @@ export const NavArray: string[] = [
   "Tutors",
   "About us",
   "Contact us",
-  "Sign up",
+  "Join now",
 ];

@@ -23,14 +23,14 @@ const CustomSlider = ({ SliderData = [] }: IProps) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <h1>next arrow</h1>,
-    prevArrow: <h1>prev arrow</h1>,
+    // nextArrow: <h1>next arrow</h1>,
+    // prevArrow: <h1>prev arrow</h1>,
     // ...CustomSetting,
   };
   return (
     <Slider {...settings}>
-      {SliderData?.map((item: ISliderData) => (
-        <div className={styles.sliderImgWrapper}>
+      {SliderData?.map((item: ISliderData, index: number) => (
+        <div key={index} className={styles.sliderImgWrapper}>
           <Image
             src={item?.image}
             width={item?.imgWidth}

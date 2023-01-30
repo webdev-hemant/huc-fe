@@ -4,7 +4,7 @@ import logo from "@/images/og-logo.png";
 import { NavArray } from "@/constants/NavbarLinks";
 import styles from "./desktopNavbar.module.scss";
 
-const DesktopNavbar = () => {
+const DesktopNavbar = ({ handleNavClick = (_: string) => {} }) => {
   return (
     <nav className={styles.navWrapper}>
       <div className={styles.imgWrapper}>
@@ -18,7 +18,11 @@ const DesktopNavbar = () => {
       </div>
       <ul className={styles.navListContainer}>
         {NavArray.map((item: string) => (
-          <li key={item} className={`${styles.titleName} ${styles.active}`}>
+          <li
+            key={item}
+            onClick={() => handleNavClick(item)}
+            className={`${styles.titleName} ${styles.active}`}
+          >
             {item}
           </li>
         ))}

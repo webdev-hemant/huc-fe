@@ -7,9 +7,8 @@ import { RxCross2 } from "react-icons/rx";
 import { GiHamburgerMenu } from "react-icons/gi";
 import styles from "./mobileNavbar.module.scss";
 
-const MobileNavbar = () => {
+const MobileNavbar = ({ handleNavClick = (_: string) => {} }) => {
   const [showNav, setShowNav] = useState(true);
-  console.log({ showNav });
   return (
     <nav className={styles.navWrapper}>
       <div className={`${styles.mobileNav} ${showNav || styles.navOpen}`}>
@@ -58,7 +57,11 @@ const MobileNavbar = () => {
         </div> */}
         <ul className={styles.navListContainer}>
           {NavArray.map((item: string) => (
-            <li key={item} className={styles.titleName}>
+            <li
+              key={item}
+              onClick={() => handleNavClick(item)}
+              className={styles.titleName}
+            >
               {item}
             </li>
           ))}
