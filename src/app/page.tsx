@@ -1,7 +1,9 @@
 import Header from "@/components/Header/Header";
 import Image from "next/image";
 import illustrator from "@/images/illustrator-1.png";
+import imageCustom from "@/images/og-logo.png";
 import styles from "./homePage.module.scss";
+import CustomSlider from "@/customHooks/customSlider/Slider";
 
 export default function Home() {
   return (
@@ -27,6 +29,16 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.secondSection}></div>
+      <CustomSlider
+        SliderData={[
+          { image: imageCustom, imgHeight: 400, imgWidth: 400, alt: "photo" },
+          { image: illustrator, imgHeight: 400, imgWidth: 400, alt: "photo" },
+          { image: illustrator, imgHeight: 400, imgWidth: 400, alt: "photo" },
+          { image: illustrator, imgHeight: 400, imgWidth: 400, alt: "photo" },
+          { image: illustrator, imgHeight: 400, imgWidth: 400, alt: "photo" },
+          { image: illustrator, imgHeight: 400, imgWidth: 400, alt: "photo" },
+        ]}
+      />
     </div>
   );
 }

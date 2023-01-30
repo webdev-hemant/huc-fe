@@ -1,0 +1,7 @@
+.sliderImgWrapper {
+  // background-color: aquamarine;
+  cursor: grab;
+  &:active {
+    cursor: grabbing;
+  }
+}
