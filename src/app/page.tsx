@@ -66,11 +66,10 @@ export default function Home() {
           {/*body*/}
           <div className="relative p-6 flex-auto">
             <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              I always felt like I could do anything. That&apos;s the main thing
-              people are controlled by! Thoughts- their perception of
-              themselves! They&apos;re slowed down by their perception of
-              themselves. If you're taught you can&apos;t do anything, you
-              won&apos;t do anything. I was taught I could do everything.
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione
+              itaque quaerat inventore quia reprehenderit quo. Est corrupti
+              adipisci architecto nam magnam repellat minima. Pariatur possimus,
+              nulla ex quisquam nesciunt modi!
             </p>
           </div>
           {/*footer*/}
