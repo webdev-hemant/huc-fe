@@ -12,6 +12,7 @@ const nextConfig = {
   env: {
     API_ENDPOINT: process.env.API_ENDPOINT,
     HAND_SHAKE: process.env.HAND_SHAKE,
+    FORM_KEY: process.env.FORM_KEY,
   },
 };
 

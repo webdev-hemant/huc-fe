@@ -116,6 +116,14 @@
     }
     .registerButton {
       background-color: $color_6;
+      display: flex;
+      align-items: center;
+      svg {
+        width: 1rem;
+        height: 1rem;
+        margin: 0 0 0 0.5rem;
+        color: #fff;
+      }
     }
   }
 }

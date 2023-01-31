@@ -8,6 +8,8 @@ import CustomSlider from "@/customHooks/customSlider/Slider";
 import Modal from "@/components/Modal/Modal";
 import Input from "@/components/Input/Input";
 import { ISsologin } from "@/constants/Ssologin";
+import { formSubmit } from "@/constantApi/formSubmit";
+import Spinner from "@/components/Spinner/Spinner";
 import styles from "./homePage.module.scss";
 
 interface IAllError {
@@ -19,6 +21,7 @@ interface IAllError {
 
 export default function Home() {
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [allInput, setAllInput] = useState<ISsologin>({
     name: "",
     collegeName: "",
@@ -84,6 +87,19 @@ export default function Home() {
     setAllInput((prev) => {
       return { ...prev, [name]: value };
     });
+  };
+
+  const handleFormSubmit = async () => {
+    const isNoError = Object.values(allError).every((v) => v == false);
+    const isNotEmty = Object.values(allInput).every((v) => !!v == true);
+    const isEveryThingOKay = isNoError && isNotEmty;
+    if (isEveryThingOKay) {
+      setIsLoading(true);
+      formSubmit(allInput).then((res) => {
+        setIsLoading(false);
+        console.log(res);
+      });
+    }
   };
 
   return (
@@ -195,9 +211,9 @@ export default function Home() {
             <button
               className={`text-white font-medium uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 ${styles.registerButton}`}
               type="button"
-              // onClick={() => setShowModal(false)}
+              onClick={() => handleFormSubmit()}
             >
-              Register
+              Register{isLoading ? <Spinner /> : null}
             </button>
           </div>
         </div>
