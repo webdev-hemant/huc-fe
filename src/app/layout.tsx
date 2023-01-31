@@ -2,6 +2,7 @@
 // import Header from "@/components/Header/Header";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "react-toastify/dist/ReactToastify.css";
 import "@/styles/globals.css";
 
 export default function RootLayout({

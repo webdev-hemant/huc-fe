@@ -12,6 +12,7 @@ import { formSubmit } from "@/constantApi/formSubmit";
 import Spinner from "@/components/Spinner/Spinner";
 import { RxCross2 } from "react-icons/rx";
 import styles from "./homePage.module.scss";
+import { ToastContainer, toast } from "react-toastify";
 
 interface IAllError {
   nameError: boolean;
@@ -97,8 +98,21 @@ export default function Home() {
     if (isEveryThingOKay) {
       setIsLoading(true);
       formSubmit(allInput).then((res) => {
+        // if (res.Created === 201) {
+        toast.success("success", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
         setIsLoading(false);
+        setShowModal(false);
         console.log(res);
+        // }
       });
     }
   };
@@ -207,6 +221,18 @@ export default function Home() {
           </div>
         </div>
       </Modal>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }

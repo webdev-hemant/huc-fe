@@ -9,8 +9,8 @@ export const formSubmit = async(dataPara: ISsologin) => {
                 Authorization: `Bearer ${FORM_KEY}`
             }
         })
-        const data = response.data
-        return data
+        
+        return response
     } catch (error) {
         console.log(error);
     }
