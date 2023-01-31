@@ -10,6 +10,7 @@ import Input from "@/components/Input/Input";
 import { ISsologin } from "@/constants/Ssologin";
 import { formSubmit } from "@/constantApi/formSubmit";
 import Spinner from "@/components/Spinner/Spinner";
+import { RxCross2 } from "react-icons/rx";
 import styles from "./homePage.module.scss";
 
 interface IAllError {
@@ -144,11 +145,15 @@ export default function Home() {
         <div
           className={`px-5 border-0 rounded-lg shadow-lg relative w-full bg-white outline-none focus:outline-none ${styles.modalWrapper}`}
         >
-          {/*header*/}
           <div className="py-4 text-center border-b border-solid border-slate-200 rounded-t">
-            <h3 className="text-2xl font-bold text-center">Register now</h3>
+            <h3 className="text-2xl font-bold">Register now</h3>
+            <RxCross2
+              onClick={() => {
+                setShowModal(false);
+              }}
+              className={styles.crossIcon}
+            />
           </div>
-          {/*body*/}
           <Input
             type="text"
             name="name"
@@ -191,23 +196,7 @@ export default function Home() {
             isError={allError.yearOfStudyError}
             errorMessage="*Please enter highest qualification"
           />
-          {/* <div className="relative p-6 flex-auto">
-            <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione
-              itaque quaerat inventore quia reprehenderit quo. Est corrupti
-              adipisci architecto nam magnam repellat minima. Pariatur possimus,
-              nulla ex quisquam nesciunt modi!
-            </p>
-          </div> */}
-          {/*footer*/}
           <div className="flex items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
-            {/* <button
-              className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-              type="button"
-              onClick={() => setShowModal(false)}
-            >
-              Close
-            </button> */}
             <button
               className={`text-white font-medium uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 ${styles.registerButton}`}
               type="button"
