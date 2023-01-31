@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require("path");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -7,8 +7,12 @@ const nextConfig = {
   },
   sassOptions: {
     // define the absolute path...
-    includePaths: [path.join(__dirname, 'styles')],
+    includePaths: [path.join(__dirname, "styles")],
   },
-}
+  env: {
+    API_ENDPOINT: process.env.API_ENDPOINT,
+    HAND_SHAKE: process.env.HAND_SHAKE,
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
