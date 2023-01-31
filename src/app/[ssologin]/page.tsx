@@ -7,13 +7,15 @@ import SsoCard from "@/components/SsoCard/SsoCard";
 
 const SsoLogin = ({ params }: any) => {
   const [apiData, setApiData] = useState<ISsologin[]>([]);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     let isMounted = true;
     if (isMounted && params?.ssologin) {
-      SsoLoginApiCall({ HAND_SHAKE: params.ssologin || "" }).then((res) =>
-        setApiData(res)
-      );
+      SsoLoginApiCall({ HAND_SHAKE: params.ssologin || "" }).then((res) => {
+        setIsLoaded(true);
+        setApiData(res);
+      });
     }
     return () => {
       isMounted = false;
@@ -22,23 +24,32 @@ const SsoLogin = ({ params }: any) => {
 
   return (
     <div className={`${styles.ssoLoginWrapper} bg-cyan-600`}>
-      {!apiData.length ? (
+      {/* {!apiData.length ? (
         <h1 style={{ fontSize: "3rem", color: "#fff" }}>Loading...</h1>
-      ) : null}
-      {/* <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"> */}
-      <div className={` ${styles.ssologinInner}`}>
-        {apiData?.map((item: ISsologin, index) => {
-          return (
-            <SsoCard
-              key={index}
-              name={item?.name}
-              email={item?.email}
-              collegeName={item?.collegeName}
-              yearOfStudy={item?.yearOfStudy}
-            />
-          );
-        })}
-      </div>
+      ) : null} */}
+      {isLoaded ? (
+        <div className={` ${styles.ssologinInner}`}>
+          {apiData.length ? (
+            apiData?.map((item: ISsologin, index) => {
+              return (
+                <SsoCard
+                  key={index}
+                  name={item?.name}
+                  email={item?.email}
+                  collegeName={item?.collegeName}
+                  yearOfStudy={item?.yearOfStudy}
+                />
+              );
+            })
+          ) : (
+            <h1 style={{ fontSize: "3rem", color: "#fff" }}>
+              no Hustler found!
+            </h1>
+          )}
+        </div>
+      ) : (
+        <h1 style={{ fontSize: "3rem", color: "#fff" }}>Loading...</h1>
+      )}
     </div>
   );
 };
