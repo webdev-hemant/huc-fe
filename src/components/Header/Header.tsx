@@ -15,6 +15,7 @@ const Header = ({
   const handleNavClick = (item: string) => {
     switch (item) {
       case "Join now":
+        document.body.style.overflow = "unset";
         setShowNav(true);
         setShowModal(true);
         break;

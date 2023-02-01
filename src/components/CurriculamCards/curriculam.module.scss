@@ -1,0 +1,25 @@
+@import "@/styles/base.module.scss";
+
+.curriculamWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .textSection {
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    font-family: $font_lobster;
+    h4 {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+  .imgSection {
+  }
+}

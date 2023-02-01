@@ -1,0 +1,28 @@
+@import "@/styles/base.module.scss";
+
+.cardTypeOneWrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  .iconWrapper {
+    width: 80px;
+    .icon {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      border-radius: 50%;
+    }
+  }
+  .textWrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      font-family: $font_caveat;
+    }
+    h3 {
+    }
+  }
+}
