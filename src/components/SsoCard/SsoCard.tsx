@@ -1,12 +1,13 @@
 import React from "react";
-import { ISsologin } from "@/constants/Ssologin";
+import { IForm } from "@/constants/Ssologin";
 
 const SsoCard = ({
   name = "",
   collegeName = "",
   email = "",
   yearOfStudy = "",
-}: ISsologin) => {
+  mobile = "",
+}: IForm) => {
   return (
     <div style={{ minWidth: "20rem" }} className="rounded-md">
       <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 rounded-md">
@@ -18,6 +19,13 @@ const SsoCard = ({
               id="modal-title"
             >
               Name : <span className="font-semibold capitalize">{name}</span>
+            </h3>
+            <h3
+              className="text-lg font-medium leading-6 text-gray-900"
+              id="modal-title"
+            >
+              Mobile :{" "}
+              <span className="font-semibold capitalize">{mobile}</span>
             </h3>
             <h3
               className="text-lg font-medium leading-6 text-gray-900"

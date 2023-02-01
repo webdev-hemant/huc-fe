@@ -1,12 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { SsoLoginApiCall } from "@/constantApi/ssoLogin";
-import { ISsologin } from "@/constants/Ssologin";
+import { IForm } from "@/constants/Ssologin";
 import styles from "./ssoLogin.module.scss";
 import SsoCard from "@/components/SsoCard/SsoCard";
 
 const SsoLogin = ({ params }: any) => {
-  const [apiData, setApiData] = useState<ISsologin[]>([]);
+  const [apiData, setApiData] = useState<IForm[]>([]);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const SsoLogin = ({ params }: any) => {
       {isLoaded ? (
         <div className={` ${styles.ssologinInner}`}>
           {apiData.length ? (
-            apiData?.map((item: ISsologin, index) => {
+            apiData?.map((item: IForm, index) => {
               return (
                 <SsoCard
                   key={index}
@@ -38,6 +38,7 @@ const SsoLogin = ({ params }: any) => {
                   email={item?.email}
                   collegeName={item?.collegeName}
                   yearOfStudy={item?.yearOfStudy}
+                  mobile={item?.mobile}
                 />
               );
             })
