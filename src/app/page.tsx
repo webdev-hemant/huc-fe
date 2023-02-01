@@ -5,6 +5,7 @@ import Image from "next/image";
 import illustrator from "@/images/illustrator-1.png";
 // import imageCustom from "@/images/og-logo.png";
 // import CustomSlider from "@/customHooks/customSlider/Slider";
+import pilotBG from "@/images/pilot-bg.jpg";
 import Modal from "@/components/Modal/Modal";
 import Input from "@/components/Input/Input";
 import { IForm } from "@/constants/Ssologin";
@@ -167,6 +168,9 @@ export default function Home() {
           <Image src={illustrator} alt="" />
           <div className={styles.dropShadow} />
         </div>
+      </div>
+      <div className={styles.bgCover}>
+        <Image src={pilotBG} alt="" />
       </div>
       <div className={styles.secondSection}>
         <SecondSection />

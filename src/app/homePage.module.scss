@@ -107,6 +107,18 @@
       }
     }
   }
+  .bgCover {
+    // margin-bottom: 5rem;
+    height: 10rem;
+    width: 100%;
+    overflow: hidden;
+    img {
+      transform: scale(2);
+      @media screen and (max-width: 768px) {
+        transform: scale(6);
+      }
+    }
+  }
   .secondSection {
     display: flex;
     justify-content: center;
