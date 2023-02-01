@@ -7,7 +7,7 @@ import illustrator from "@/images/illustrator-1.png";
 // import CustomSlider from "@/customHooks/customSlider/Slider";
 import Modal from "@/components/Modal/Modal";
 import Input from "@/components/Input/Input";
-import { ISsologin } from "@/constants/Ssologin";
+import { IForm } from "@/constants/Ssologin";
 import { formSubmit } from "@/constantApi/formSubmit";
 import Spinner from "@/components/Spinner/Spinner";
 import { RxCross2 } from "react-icons/rx";
@@ -18,6 +18,7 @@ import styles from "./homePage.module.scss";
 interface IAllError {
   nameError: boolean;
   emailError: boolean;
+  mobileError: boolean;
   collegeNameError: boolean;
   yearOfStudyError: boolean;
 }
@@ -27,8 +28,9 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showNav, setShowNav] = useState<boolean>(true);
 
-  const [allInput, setAllInput] = useState<ISsologin>({
+  const [allInput, setAllInput] = useState<IForm>({
     name: "",
+    mobile: "",
     collegeName: "",
     email: "",
     yearOfStudy: "",
@@ -36,6 +38,7 @@ export default function Home() {
 
   const [allError, setIsAllError] = useState<IAllError>({
     nameError: false,
+    mobileError: false,
     emailError: false,
     collegeNameError: false,
     yearOfStudyError: false,
@@ -51,6 +54,12 @@ export default function Home() {
     switch (name) {
       case "name":
         setIsAllError((prev) => ({ ...prev, nameError: value.length < 3 }));
+        break;
+      case "mobile":
+        setIsAllError((prev) => ({
+          ...prev,
+          mobileError: value.length < 10 || value.length > 10,
+        }));
         break;
       case "email":
         setIsAllError((prev) => ({
@@ -78,6 +87,9 @@ export default function Home() {
     switch (name) {
       case "name":
         setIsAllError((prev) => ({ ...prev, nameError: false }));
+        break;
+      case "mobile":
+        setIsAllError((prev) => ({ ...prev, mobileError: false }));
         break;
       case "email":
         setIsAllError((prev) => ({ ...prev, emailError: false }));
@@ -191,6 +203,16 @@ export default function Home() {
             label="Full name"
             onBlur={handleBlur}
             isError={allError.nameError}
+          />
+          <Input
+            type="text"
+            name="mobile"
+            value={allInput.mobile}
+            onChange={handleInputChange}
+            placeholder="Enter your mobile number"
+            label="Mobile number"
+            onBlur={handleBlur}
+            isError={allError.mobileError}
           />
           <Input
             type="text"
