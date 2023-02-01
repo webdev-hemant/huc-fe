@@ -1,6 +1,8 @@
-import CurriculamCard from "@/components/CurriculamCards/CurriculamCard";
 import React from "react";
+// import firstLine from "@/images/firstLine.svg";
+import CurriculamCard from "@/components/CurriculamCards/CurriculamCard";
 import styles from "./secondSection.module.scss";
+// import Image from "next/image";
 
 const SecondSection = () => {
   return (

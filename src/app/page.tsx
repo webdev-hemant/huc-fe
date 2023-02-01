@@ -5,6 +5,11 @@ import Image from "next/image";
 import illustrator from "@/images/illustrator-1.png";
 // import imageCustom from "@/images/og-logo.png";
 // import CustomSlider from "@/customHooks/customSlider/Slider";
+import firstLine from "@/images/firstLine.svg";
+import secondLine from "@/images/secondLine.svg";
+import thirdLine from "@/images/thirdLine.svg";
+import fourthLine from "@/images/fourthLine.svg";
+import fifthLine from "@/images/fifthLine.svg";
 import pilotBG from "@/images/pilot-bg.jpg";
 import Modal from "@/components/Modal/Modal";
 import Input from "@/components/Input/Input";
@@ -174,6 +179,25 @@ export default function Home() {
       </div>
       <div className={styles.secondSection}>
         <SecondSection />
+        <div className={styles.linesWrapper}>
+          <Image src={firstLine} alt="" />
+        </div>
+        <SecondSection />
+        <div className={styles.linesWrapper}>
+          <Image src={secondLine} alt="" />
+        </div>
+        <SecondSection />
+        <div className={styles.linesWrapper}>
+          <Image src={thirdLine} alt="" />
+        </div>
+        <SecondSection />
+        <div className={styles.linesWrapper}>
+          <Image src={fourthLine} alt="" />
+        </div>
+        <SecondSection />
+        <div className={styles.linesWrapper}>
+          <Image src={fifthLine} alt="" />
+        </div>
       </div>
       {/* <CustomSlider
         SliderData={[
