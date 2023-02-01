@@ -2,13 +2,20 @@
 import { NavArray } from "@/constants/NavbarLinks";
 import logo from "@/images/og-logo.png";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, SetStateAction } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { GiHamburgerMenu } from "react-icons/gi";
 import styles from "./mobileNavbar.module.scss";
 
-const MobileNavbar = ({ handleNavClick = (_: string) => {} }) => {
-  const [showNav, setShowNav] = useState(true);
+interface IProps {
+  handleNavClick: (_: string) => void;
+  setShowNav: React.Dispatch<SetStateAction<boolean>>;
+  showNav: boolean;
+}
+
+const MobileNavbar = (props: IProps) => {
+  const { handleNavClick = (_) => {}, showNav = true, setShowNav } = props;
+  // const [showNav, setShowNav] = useState(true);
   return (
     <nav className={styles.navWrapper}>
       <div className={`${styles.mobileNav} ${showNav || styles.navOpen}`}>
@@ -46,15 +53,6 @@ const MobileNavbar = ({ handleNavClick = (_: string) => {} }) => {
           showNav && styles.width_0
         }`}
       >
-        {/* <div
-          onClick={() => setShowNav(true)}
-          className={styles.crossIconWrapper}
-        >
-          <RxCross2
-            style={{ width: "50px", height: "50px", stroke: "blue" }}
-            className={styles.crossIcon}
-          />
-        </div> */}
         <ul className={styles.navListContainer}>
           {NavArray.map((item: string) => (
             <li

@@ -3,16 +3,17 @@ import { ChangeEvent, useState } from "react";
 import Header from "@/components/Header/Header";
 import Image from "next/image";
 import illustrator from "@/images/illustrator-1.png";
-import imageCustom from "@/images/og-logo.png";
-import CustomSlider from "@/customHooks/customSlider/Slider";
+// import imageCustom from "@/images/og-logo.png";
+// import CustomSlider from "@/customHooks/customSlider/Slider";
 import Modal from "@/components/Modal/Modal";
 import Input from "@/components/Input/Input";
 import { ISsologin } from "@/constants/Ssologin";
 import { formSubmit } from "@/constantApi/formSubmit";
 import Spinner from "@/components/Spinner/Spinner";
 import { RxCross2 } from "react-icons/rx";
-import styles from "./homePage.module.scss";
 import { ToastContainer, toast } from "react-toastify";
+import SecondSection from "@/modules/HomeSeconSection/SecondSection";
+import styles from "./homePage.module.scss";
 
 interface IAllError {
   nameError: boolean;
@@ -24,6 +25,8 @@ interface IAllError {
 export default function Home() {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [showNav, setShowNav] = useState<boolean>(true);
+
   const [allInput, setAllInput] = useState<ISsologin>({
     name: "",
     collegeName: "",
@@ -119,12 +122,19 @@ export default function Home() {
 
   return (
     <div className={styles.pageWrapper}>
-      <Header setShowModal={setShowModal} />
+      <Header
+        setShowModal={setShowModal}
+        setShowNav={setShowNav}
+        showNav={showNav}
+      />
       <div className={styles.firstSection}>
         <div className={styles.introWrapper}>
           <div className={styles.introWrapper_Inner}>
             <h3 className={styles.teachingIsWhat}>HUSTLE-UP ACADEMY</h3>
-            <h6 className={styles.description}>
+            <h6
+              className={styles.description}
+              onClick={() => setShowModal(true)}
+            >
               Gain Industry standard knowledge and know current market
               requirement with the help of <b>working professionals. </b>
               Build and showcase real world projects!
@@ -133,7 +143,9 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setShowModal(true)}
-              className={styles.hireTutorButton}
+              className={`${styles.hireTutorButton} ${
+                !showNav && styles.position_unset
+              }`}
             >
               JOIN NOW
             </button>
@@ -144,8 +156,10 @@ export default function Home() {
           <div className={styles.dropShadow} />
         </div>
       </div>
-      <div className={styles.secondSection}></div>
-      <CustomSlider
+      <div className={styles.secondSection}>
+        <SecondSection />
+      </div>
+      {/* <CustomSlider
         SliderData={[
           { image: imageCustom, imgHeight: 400, imgWidth: 400, alt: "photo" },
           { image: illustrator, imgHeight: 400, imgWidth: 400, alt: "photo" },
@@ -154,7 +168,7 @@ export default function Home() {
           { image: illustrator, imgHeight: 400, imgWidth: 400, alt: "photo" },
           { image: illustrator, imgHeight: 400, imgWidth: 400, alt: "photo" },
         ]}
-      />
+      /> */}
       <Modal showModal={showModal} modalNumber={2}>
         <div
           className={`px-5 border-0 rounded-lg shadow-lg relative w-full bg-white outline-none focus:outline-none ${styles.modalWrapper}`}

@@ -5,13 +5,17 @@ import MobileNavbar from "../Navbar/MobileNavbar";
 
 const Header = ({
   setShowModal = () => {},
+  setShowNav,
+  showNav,
 }: {
   setShowModal: Dispatch<SetStateAction<boolean>>;
+  setShowNav: React.Dispatch<SetStateAction<boolean>>;
+  showNav: boolean;
 }) => {
   const handleNavClick = (item: string) => {
     switch (item) {
       case "Join now":
-        console.log(item);
+        setShowNav(true);
         setShowModal(true);
         break;
       default:
@@ -21,7 +25,11 @@ const Header = ({
   return (
     <header>
       <DesktopNavbar handleNavClick={handleNavClick} />
-      <MobileNavbar handleNavClick={handleNavClick} />
+      <MobileNavbar
+        handleNavClick={handleNavClick}
+        setShowNav={setShowNav}
+        showNav={showNav}
+      />
       {/* Header */}
     </header>
   );
