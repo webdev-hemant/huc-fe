@@ -20,7 +20,7 @@ const SsoLogin = ({ params }: any) => {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [params.ssologin]);
 
   return (
     <div className={`${styles.ssoLoginWrapper} bg-cyan-600`}>
