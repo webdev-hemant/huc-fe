@@ -20,6 +20,7 @@ import { RxCross2 } from "react-icons/rx";
 import { ToastContainer, toast } from "react-toastify";
 import SecondSection from "@/modules/HomeSeconSection/SecondSection";
 import styles from "./homePage.module.scss";
+import AboutMe from "@/modules/aboutMe/AboutMe";
 
 interface IAllError {
   nameError: boolean;
@@ -151,13 +152,13 @@ export default function Home() {
             <h3 className={styles.teachingIsWhat}>HUSTLE-UP ACADEMY</h3>
             <h6
               className={styles.description}
-              onClick={() => setShowModal(true)}
+              // onClick={() => setShowModal(true)}
             >
               Gain Industry standard knowledge and know current market
               requirement with the help of <b>working professionals. </b>
               Build and showcase real world projects!
             </h6>
-            <p className={styles.learnSkill}>March 2023 BATCH</p>
+            <p className={styles.learnSkill}>BATCH MARCH 15 2023</p>
             <button
               type="button"
               onClick={() => setShowModal(true)}
@@ -177,6 +178,7 @@ export default function Home() {
       <div className={styles.bgCover}>
         <Image src={pilotBG} alt="" />
       </div>
+      <AboutMe />
       <div className={styles.secondSection}>
         <SecondSection />
         <div className={styles.linesWrapper}>
@@ -198,6 +200,7 @@ export default function Home() {
         <div className={styles.linesWrapper}>
           <Image src={fifthLine} alt="" />
         </div>
+        <SecondSection />
       </div>
       {/* <CustomSlider
         SliderData={[
