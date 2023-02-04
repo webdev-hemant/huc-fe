@@ -8,6 +8,7 @@ import "@/styles/globals.css";
 import chatImg from "@/images/chatIcon.png";
 import Input from "@/components/Input/Input";
 import { BiSend } from "react-icons/bi";
+import ImgOne from "@/images/send-btn-2.svg";
 import styles from "./rootLayOut.module.scss";
 import TextArea from "@/components/Textarea/TextArea";
 
@@ -28,7 +29,7 @@ export default function RootLayout({
           {openChatBox ? (
             <div className={styles.chatBotBoxWrapper}>
               <div className={styles.botHeader}>
-                <h2 className={styles.textHeading}>Chat Gpt</h2>
+                <h2 className={styles.textHeading}>CHAT GPT</h2>
               </div>
               <div className={styles.botBody}>
                 <div className={styles.rightWrapper}>
@@ -39,11 +40,16 @@ export default function RootLayout({
                 </div>
               </div>
               <div className={styles.botChatSection}>
-                <TextArea
-                  onChange={(e) => setChatBoxInput(e.target.value)}
-                  value={chatBoxInput}
-                />
-                <BiSend className={styles.sendIcon} />
+                <div className={styles.botchatInner}>
+                  <TextArea
+                    textAreaStyleName={styles.customTextArea}
+                    onChange={(e) => setChatBoxInput(e.target.value)}
+                    value={chatBoxInput}
+                  />
+                  {/* <BiSend className={styles.sendIcon} />
+                   */}
+                  <Image className={styles.sendIcon} src={ImgOne} alt="" />
+                </div>
               </div>
             </div>
           ) : null}
