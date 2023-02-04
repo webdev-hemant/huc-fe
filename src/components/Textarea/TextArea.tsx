@@ -8,6 +8,7 @@ interface Iprops {
   onFocus?: (_: React.FocusEvent<HTMLTextAreaElement, Element>) => void;
   getRef?: (_: React.MutableRefObject<any>) => void;
   onBlur?: (_: React.FocusEvent<HTMLTextAreaElement, Element>) => void;
+  onKeyDown?: (_: React.KeyboardEvent<HTMLTextAreaElement>) => void;
   placeholder?: string;
   name?: string;
   required?: boolean;
@@ -43,6 +44,7 @@ const TextArea = (props: Iprops) => {
     errorMessage = `*Please enter valid ${name}`,
     divStyleName = "",
     textAreaStyleName = "",
+    onKeyDown,
     ...rest
   } = props;
 
@@ -75,6 +77,7 @@ const TextArea = (props: Iprops) => {
         placeholder={placeholder}
         className={`${textAreaStyleName} ${styles.textArea}`}
         style={inputStyle}
+        onKeyDown={onKeyDown}
         {...rest}
       />
 

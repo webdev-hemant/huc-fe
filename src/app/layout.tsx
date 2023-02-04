@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { KeyboardEvent, useState } from "react";
 import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -9,8 +9,17 @@ import chatImg from "@/images/chatIcon.png";
 import Input from "@/components/Input/Input";
 import { BiSend } from "react-icons/bi";
 import ImgOne from "@/images/send-btn-2.svg";
-import styles from "./rootLayOut.module.scss";
 import TextArea from "@/components/Textarea/TextArea";
+import ChatGpt from "@/modules/chatGpt/ChatGpt";
+import styles from "./rootLayOut.module.scss";
+
+interface IchatPosition {
+  isAiTyping?: boolean;
+  isUserTyping?: boolean;
+  text: string;
+  // leftPosition: string[];
+  // rightPosition: string[];
+}
 
 export default function RootLayout({
   children,
@@ -19,6 +28,68 @@ export default function RootLayout({
 }) {
   const [openChatBox, setOpenChatBox] = useState<boolean>(true);
   const [chatBoxInput, setChatBoxInput] = useState<string>("");
+  const [chatDisplayPosition, setChatDisplayPosition] = useState<
+    IchatPosition[]
+  >([
+    {
+      isAiTyping: false,
+      isUserTyping: true,
+      text: "Hi, my self hemant",
+    },
+    {
+      isAiTyping: true,
+      isUserTyping: false,
+      text: "Yeah tell me hemant",
+    },
+  ]);
+
+  const handleOnclick = () => {
+    setChatDisplayPosition((prev) => [
+      ...prev,
+      {
+        isUserTyping: true,
+        text: chatBoxInput,
+      },
+    ]);
+    setChatBoxInput("");
+    ChatGpt({ promtText: chatBoxInput }).then((data) => {
+      setChatDisplayPosition((prev) => [
+        ...prev,
+        {
+          isAiTyping: true,
+          text: data?.data?.choices?.[0]?.text || "",
+        },
+      ]);
+      console.log({ data: data?.data?.choices?.[0]?.text });
+    });
+  };
+
+  const handleOnKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
+    const keyCode = event.which || event.keyCode;
+    if (keyCode === 13 && !event.shiftKey) {
+      event.preventDefault();
+      // Do something else such as send the message to back-end
+      setChatDisplayPosition((prev) => [
+        ...prev,
+        {
+          isUserTyping: true,
+          text: chatBoxInput,
+        },
+      ]);
+      setChatBoxInput("");
+      ChatGpt({ promtText: chatBoxInput }).then((data) => {
+        setChatDisplayPosition((prev) => [
+          ...prev,
+          {
+            isAiTyping: true,
+            text: data?.data?.choices?.[0]?.text || "",
+          },
+        ]);
+        console.log({ data: data?.data?.choices?.[0]?.text });
+      });
+    }
+  };
+
   return (
     <html lang="en">
       <head />
@@ -29,32 +100,68 @@ export default function RootLayout({
           {openChatBox ? (
             <div className={styles.chatBotBoxWrapper}>
               <div className={styles.botHeader}>
-                <h2 className={styles.textHeading}>CHAT GPT</h2>
+                <h2
+                  // onClick={() => {
+                  //   setChatDisplayPosition((prev) => [
+                  //     ...prev,
+                  //     {
+                  //       isAiTyping: true,
+                  //       text: "my name is chat gpt ai",
+                  //     },
+                  //   ]);
+                  // }}
+                  className={styles.textHeading}
+                >
+                  CHAT GPT
+                </h2>
               </div>
               <div className={styles.botBody}>
-                <div className={styles.rightWrapper}>
-                  <h3 className={styles.textRight}>Hi, my self hemant</h3>
-                </div>
-                <div className={styles.leftWrapper}>
-                  <h3 className={styles.textLeft}>Yeah tell me hemant</h3>
-                </div>
+                {chatDisplayPosition?.map((item: IchatPosition, index) => {
+                  if (item?.isUserTyping) {
+                    return (
+                      <div key={index} className={styles.rightWrapper}>
+                        <h3 className={styles.textRight}>{item.text}</h3>
+                      </div>
+                    );
+                  } else if (item?.isAiTyping) {
+                    return (
+                      <div key={index} className={styles.leftWrapper}>
+                        <h3 className={styles.textLeft}>{item.text}</h3>
+                      </div>
+                    );
+                  }
+                })}
               </div>
+
               <div className={styles.botChatSection}>
                 <div className={styles.botchatInner}>
                   <TextArea
                     textAreaStyleName={styles.customTextArea}
                     onChange={(e) => setChatBoxInput(e.target.value)}
                     value={chatBoxInput}
+                    onKeyDown={handleOnKeyDown}
                   />
                   {/* <BiSend className={styles.sendIcon} />
                    */}
-                  <Image className={styles.sendIcon} src={ImgOne} alt="" />
+                  <Image
+                    onClick={() => handleOnclick()}
+                    className={styles.sendIcon}
+                    src={ImgOne}
+                    alt=""
+                  />
                 </div>
               </div>
             </div>
           ) : null}
           <div
-            onClick={() => setOpenChatBox((prev) => !prev)}
+            onClick={() =>
+              setOpenChatBox((prev) => {
+                prev
+                  ? (document.body.style.overflow = "unset")
+                  : (document.body.style.overflow = "hidden");
+                return !prev;
+              })
+            }
             className={styles.chatIconWrapper}
           >
             <Image className={styles.chatIcon} src={chatImg} alt="" />

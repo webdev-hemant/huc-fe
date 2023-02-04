@@ -21,7 +21,6 @@ import { ToastContainer, toast } from "react-toastify";
 import SecondSection from "@/modules/HomeSeconSection/SecondSection";
 import styles from "./homePage.module.scss";
 import AboutMe from "@/modules/aboutMe/AboutMe";
-import ChatGpt from "@/modules/chatGpt/ChatGpt";
 
 interface IAllError {
   nameError: boolean;
@@ -151,14 +150,6 @@ export default function Home() {
       });
     }
   };
-  const getChatGpt = async () => {
-    const data = await ChatGpt({ promtText: "" });
-    console.log({ data: data?.data?.choices?.[0]?.text });
-  };
-
-  // useEffect(() => {
-  //   getChatGpt();
-  // }, []);
 
   return (
     <div className={styles.pageWrapper}>
