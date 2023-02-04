@@ -1,5 +1,5 @@
 "use client";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import Header from "@/components/Header/Header";
 import Image from "next/image";
 import illustrator from "@/images/illustrator-1.png";
@@ -21,6 +21,7 @@ import { ToastContainer, toast } from "react-toastify";
 import SecondSection from "@/modules/HomeSeconSection/SecondSection";
 import styles from "./homePage.module.scss";
 import AboutMe from "@/modules/aboutMe/AboutMe";
+import ChatGpt from "@/modules/chatGpt/ChatGpt";
 
 interface IAllError {
   nameError: boolean;
@@ -34,6 +35,7 @@ export default function Home() {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showNav, setShowNav] = useState<boolean>(true);
+  const [chatGptPromtText, setChatGptPromtText] = useState<string>("");
 
   const [allInput, setAllInput] = useState<IForm>({
     name: "",
@@ -50,6 +52,16 @@ export default function Home() {
     collegeNameError: false,
     yearOfStudyError: false,
   });
+
+  const resetForm = () => {
+    setAllInput({
+      name: "",
+      mobile: "",
+      collegeName: "",
+      email: "",
+      yearOfStudy: "",
+    });
+  };
 
   const handleBlur = (
     event:
@@ -131,6 +143,7 @@ export default function Home() {
           progress: undefined,
           theme: "dark",
         });
+        resetForm();
         setIsLoading(false);
         setShowModal(false);
         console.log(res);
@@ -138,6 +151,14 @@ export default function Home() {
       });
     }
   };
+  const getChatGpt = async () => {
+    const data = await ChatGpt({ promtText: "" });
+    console.log({ data: data?.data?.choices?.[0]?.text });
+  };
+
+  // useEffect(() => {
+  //   getChatGpt();
+  // }, []);
 
   return (
     <div className={styles.pageWrapper}>
@@ -221,6 +242,7 @@ export default function Home() {
             <RxCross2
               onClick={() => {
                 setShowModal(false);
+                resetForm();
               }}
               className={styles.crossIcon}
             />

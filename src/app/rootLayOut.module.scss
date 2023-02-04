@@ -1,0 +1,73 @@
+@import "@/styles/base.module.scss";
+
+.mainWrapper {
+  //   display: flex;
+  //   flex-direction: column;
+  .chatBotBoxWrapper {
+    height: 30rem;
+    width: 20rem;
+    position: fixed;
+    bottom: 7rem;
+    right: 1.5rem;
+    z-index: 99;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    @media screen and (max-width: 768px) {
+      bottom: 5rem;
+      right: 1rem;
+      width: 90vw;
+    }
+    .botHeader {
+      height: 10%;
+      border-radius: 1rem 1rem 0 0;
+      background-color: $color_5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .textHeading {
+        font-family: $font_lobster;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+    }
+    .botBody {
+      height: 70%;
+      background-color: $color_2;
+    }
+    .botChatSection {
+      padding: 1.25rem 1rem 1rem 1rem;
+      height: 20%;
+      border-radius: 0 0 1rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      .sendIcon {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+  }
+  .chatIconWrapper {
+    position: fixed;
+    bottom: 2rem;
+    right: 3rem;
+    z-index: 99;
+    cursor: pointer;
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.8));
+    @media screen and (max-width: 768px) {
+      bottom: 1rem;
+      right: 1rem;
+      //   filter: drop-shadow(8px 7px 14px rgba(0, 0, 0, 0.8));
+    }
+    .chatIcon {
+      width: 5rem;
+      height: 5rem;
+      @media screen and (max-width: 768px) {
+        width: 4rem;
+        height: 4rem;
+      }
+    }
+  }
+}
