@@ -26,7 +26,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [openChatBox, setOpenChatBox] = useState<boolean>(true);
+  const [openChatBox, setOpenChatBox] = useState<boolean>(false);
   const [chatBoxInput, setChatBoxInput] = useState<string>("");
   const [chatDisplayPosition, setChatDisplayPosition] = useState<
     IchatPosition[]
