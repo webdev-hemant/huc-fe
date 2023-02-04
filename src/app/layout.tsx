@@ -30,10 +30,16 @@ export default function RootLayout({
               <div className={styles.botHeader}>
                 <h2 className={styles.textHeading}>Chat Gpt</h2>
               </div>
-              <div className={styles.botBody}></div>
+              <div className={styles.botBody}>
+                <div className={styles.rightWrapper}>
+                  <h3 className={styles.textRight}>Hi, my self hemant</h3>
+                </div>
+                <div className={styles.leftWrapper}>
+                  <h3 className={styles.textLeft}>Yeah tell me hemant</h3>
+                </div>
+              </div>
               <div className={styles.botChatSection}>
                 <TextArea
-                  // type="text"
                   onChange={(e) => setChatBoxInput(e.target.value)}
                   value={chatBoxInput}
                 />
