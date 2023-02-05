@@ -10,20 +10,11 @@
     bottom: 7rem;
     right: 1.5rem;
     z-index: 99;
-    // background-color: red;
     border-radius: 1rem;
-    // box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
       rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    // background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='320' height='480' preserveAspectRatio='none' viewBox='0 0 320 480'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1115%26quot%3b)' fill='none'%3e%3crect width='320' height='480' x='0' y='0' fill='rgba(156%2c 97%2c 55%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c148.414C27.153%2c145.214%2c41.997%2c115.918%2c65.103%2c101.301C88.441%2c86.537%2c122.081%2c85.928%2c136.247%2c62.222C150.557%2c38.276%2c144.186%2c7.309%2c137.45%2c-19.762C131.166%2c-45.015%2c118.156%2c-68.101%2c99.345%2c-86.083C81.602%2c-103.044%2c58.126%2c-110.839%2c34.656%2c-118.027C10.93%2c-125.293%2c-13.707%2c-134.752%2c-37.59%2c-128.019C-61.563%2c-121.261%2c-77.494%2c-100.096%2c-94.268%2c-81.684C-111.454%2c-62.821%2c-127.372%2c-43.488%2c-136.361%2c-19.606C-147.117%2c8.97%2c-163.274%2c41.001%2c-150.963%2c68.942C-138.654%2c96.877%2c-102.785%2c103.684%2c-75.772%2c117.904C-51.18%2c130.85%2c-27.6%2c151.667%2c0%2c148.414' fill='%2386532f'%3e%3c/path%3e%3cpath d='M320 663.288C352.377 653.609 380.26800000000003 636.0550000000001 407.03 615.421 431.722 596.383 455.148 575.965 469.294 548.1800000000001 483.852 519.585 486.495 487.84 488.293 455.803 490.495 416.569 501.005 374.33 480.948 340.538 460.029 305.29499999999996 421.142 279.023 380.452 274.119 341.152 269.38300000000004 309.438 303.54499999999996 271.644 315.315 234.70499999999998 326.81899999999996 184.947 311.855 161.201 342.4 137.231 373.233 163.375 418.189 161.351 457.19 159.569 491.53 145.404 523.55 150.03 557.623 155.938 601.139 154.282 656.643 191.578 679.829 228.99099999999999 703.087 277.793 675.906 320 663.288' fill='%23b26f3f'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1115'%3e%3crect width='320' height='480' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
-    /* From https://css.glass */
-    background-color: white;
-    // background: rgba(255, 255, 255, 0);
-    // border-radius: 16px;
-    // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    // backdrop-filter: blur(7.7px);
-    // -webkit-backdrop-filter: blur(7.7px);
-    // border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: #fff;
+    transform: scale(0.9);
     @media screen and (max-width: 768px) {
       height: 30rem;
       bottom: 5rem;
@@ -59,7 +50,7 @@
     .botBody {
       position: relative;
       padding: 1rem;
-      height: 70%;
+      height: 65%;
       width: 100%;
       color: #000;
       overflow-y: scroll;
@@ -98,7 +89,7 @@
     }
     .botChatSection {
       padding: 0 1rem;
-      height: 20%;
+      height: 25%;
       .botchatInner {
         padding-top: 0.3rem;
         border-radius: 0.5rem;
