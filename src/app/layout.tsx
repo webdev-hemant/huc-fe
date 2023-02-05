@@ -6,21 +6,17 @@ import "slick-carousel/slick/slick-theme.css";
 import "react-toastify/dist/ReactToastify.css";
 import "@/styles/globals.css";
 import chatImg from "@/images/chatIcon.png";
-import Input from "@/components/Input/Input";
-import { BiSend } from "react-icons/bi";
 import ImgOne from "@/images/send-btn-2.svg";
 import TextArea from "@/components/Textarea/TextArea";
 import ChatGpt from "@/modules/chatGpt/ChatGpt";
 import styles from "./rootLayOut.module.scss";
 import Typewriter from "typewriter-effect";
-import { cursorTo } from "readline";
+import TypingLoading from "@/components/TypingLoading/TypingLoading";
 
 interface IchatPosition {
   isAiTyping?: boolean;
   isUserTyping?: boolean;
   text: string;
-  // leftPosition: string[];
-  // rightPosition: string[];
 }
 
 export default function RootLayout({
@@ -29,6 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const [openChatBox, setOpenChatBox] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [chatBoxInput, setChatBoxInput] = useState<string>("");
   const [chatDisplayPosition, setChatDisplayPosition] = useState<
     IchatPosition[]
@@ -45,7 +42,8 @@ export default function RootLayout({
     },
   ]);
 
-  const handleOnclick = () => {
+  const runChatGpt = () => {
+    setIsLoading(true);
     setChatDisplayPosition((prev) => [
       ...prev,
       {
@@ -55,15 +53,23 @@ export default function RootLayout({
     ]);
     setChatBoxInput("");
     ChatGpt({ promtText: chatBoxInput }).then((data) => {
-      setChatDisplayPosition((prev) => [
-        ...prev,
-        {
-          isAiTyping: true,
-          text: data?.data?.choices?.[0]?.text || "",
-        },
-      ]);
-      console.log({ data: data?.data?.choices?.[0]?.text });
+      setChatDisplayPosition((prev) => {
+        // delete prev[-1].isLatest;
+        return [
+          ...prev,
+          {
+            isAiTyping: true,
+            text: data?.data?.choices?.[0]?.text || "",
+          },
+        ];
+      });
+      setIsLoading(false);
+      // console.log({ data: data?.data?.choices?.[0]?.text });
     });
+  };
+
+  const handleOnclick = () => {
+    runChatGpt();
   };
 
   const handleOnKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
@@ -71,24 +77,7 @@ export default function RootLayout({
     if (keyCode === 13 && !event.shiftKey) {
       event.preventDefault();
       // Do something else such as send the message to back-end
-      setChatDisplayPosition((prev) => [
-        ...prev,
-        {
-          isUserTyping: true,
-          text: chatBoxInput,
-        },
-      ]);
-      setChatBoxInput("");
-      ChatGpt({ promtText: chatBoxInput }).then((data) => {
-        setChatDisplayPosition((prev) => [
-          ...prev,
-          {
-            isAiTyping: true,
-            text: data?.data?.choices?.[0]?.text || "",
-          },
-        ]);
-        console.log({ data: data?.data?.choices?.[0]?.text });
-      });
+      runChatGpt();
     }
   };
 
@@ -102,20 +91,7 @@ export default function RootLayout({
           {openChatBox ? (
             <div className={styles.chatBotBoxWrapper}>
               <div className={styles.botHeader}>
-                <h2
-                  // onClick={() => {
-                  //   setChatDisplayPosition((prev) => [
-                  //     ...prev,
-                  //     {
-                  //       isAiTyping: true,
-                  //       text: "my name is chat gpt ai",
-                  //     },
-                  //   ]);
-                  // }}
-                  className={styles.textHeading}
-                >
-                  CHAT GPT
-                </h2>
+                <h2 className={styles.textHeading}>CHAT GPT</h2>
               </div>
               <div className={styles.botBody}>
                 {chatDisplayPosition?.map((item: IchatPosition, index) => {
@@ -128,8 +104,21 @@ export default function RootLayout({
                       </div>
                     );
                   } else if (item?.isAiTyping) {
+                    console.log({
+                      length: chatDisplayPosition.length,
+                      index: index + 1,
+                    });
                     return (
                       <div key={index} className={styles.leftWrapper}>
+                        {/* {isLoading ? (
+                          <>
+                            {chatDisplayPosition.length === index + 1 ? (
+                              <TypingLoading />
+                            ) : (
+                              <h3 className={styles.textLeft}>{item.text}</h3>
+                            )}
+                          </>
+                        ) : ( */}
                         <h3 className={styles.textLeft}>
                           {index === 1 ? (
                             <span>
@@ -137,31 +126,37 @@ export default function RootLayout({
                               <br /> how can I help you?
                             </span>
                           ) : (
-                            <Typewriter
-                              options={{ cursor: "" }}
-                              onInit={(typewriter) => {
-                                typewriter
-                                  .typeString(item.text)
-                                  .changeDelay(1)
-                                  .callFunction(() => {
-                                    console.log("String typed out!");
-                                  })
-                                  // .pauseFor(2500)
-                                  // .deleteAll()
-                                  // .callFunction(() => {
-                                  //   console.log("All strings were deleted");
-                                  // })
-                                  .start();
-                              }}
-                            />
+                            <>
+                              {chatDisplayPosition.length === index + 1 ? (
+                                <Typewriter
+                                  options={{ cursor: "" }}
+                                  onInit={(typewriter) => {
+                                    typewriter
+                                      .typeString(item.text)
+                                      .changeDelay(1)
+                                      .start();
+                                  }}
+                                />
+                              ) : (
+                                item.text
+                              )}
+                            </>
                           )}
                         </h3>
+                        {/* // )} */}
                       </div>
                     );
                   }
                 })}
+                {isLoading ? (
+                  <div
+                    style={{ marginTop: "0.5rem" }}
+                    className={styles.leftWrapper}
+                  >
+                    <TypingLoading />
+                  </div>
+                ) : null}
               </div>
-
               <div className={styles.botChatSection}>
                 <div className={styles.botchatInner}>
                   <TextArea
@@ -185,14 +180,7 @@ export default function RootLayout({
             </div>
           ) : null}
           <div
-            onClick={() =>
-              setOpenChatBox((prev) => {
-                prev
-                  ? (document.body.style.overflow = "unset")
-                  : (document.body.style.overflow = "hidden");
-                return !prev;
-              })
-            }
+            onClick={() => setOpenChatBox((prev) => !prev)}
             className={styles.chatIconWrapper}
           >
             <Image className={styles.chatIcon} src={chatImg} alt="" />

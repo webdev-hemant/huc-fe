@@ -34,7 +34,6 @@ export default function Home() {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showNav, setShowNav] = useState<boolean>(true);
-  const [chatGptPromtText, setChatGptPromtText] = useState<string>("");
 
   const [allInput, setAllInput] = useState<IForm>({
     name: "",
