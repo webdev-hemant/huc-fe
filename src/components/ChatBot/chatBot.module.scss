@@ -1,0 +1,118 @@
+@import "@/styles/base.module.scss";
+
+.chatBotBoxWrapper {
+  height: 25rem;
+  width: 20rem;
+  position: fixed;
+  bottom: 6rem;
+  right: 1.5rem;
+  z-index: 99;
+  border-radius: 1rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  background-color: #fff;
+  transform: scale(0.9);
+  @media screen and (max-width: 768px) {
+    height: 30rem;
+    bottom: 5rem;
+    right: 1rem;
+    width: 90vw;
+  }
+  .botHeader {
+    height: 15%;
+    border-radius: 1rem 1rem 0 0;
+    // background-color: $color_5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: $color_6;
+    color: #fff;
+    // border-bottom: 2px solid #fff;
+    &::before {
+      content: "";
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+    }
+    .textHeading {
+      // font-family: $font_lobster;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+  .botBody {
+    position: relative;
+    padding: 1rem;
+    height: 65%;
+    width: 100%;
+    color: #000;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .leftWrapper {
+      display: flex;
+      justify-content: flex-start;
+      background-color: #fff;
+      .textLeft {
+        padding: 0.5rem;
+        font-size: 1rem;
+        font-weight: 400;
+        color: #fff;
+        background-color: $color_6;
+        border-radius: 0.5rem 0.5rem 0.5rem 0;
+      }
+    }
+    .rightWrapper {
+      margin: 0.5rem 0;
+      display: flex;
+      justify-content: flex-end;
+      background-color: #fff;
+      .textRight {
+        padding: 0.5rem;
+        color: #000;
+        background-color: #cc9966;
+        font-size: 1rem;
+        font-weight: 400;
+        border-radius: 0.5rem 0.5rem 0 0.5rem;
+      }
+    }
+  }
+  .botChatSection {
+    padding: 0 1rem;
+    height: 20%;
+    .botchatInner {
+      padding-top: 0.3rem;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // gap: 1rem;
+      background: rgb(74, 34, 24);
+      .customTextArea {
+        &::placeholder {
+          color: #fff;
+        }
+        height: auto;
+        border: none;
+        background: rgb(74, 34, 24);
+        color: #fff;
+        &:focus {
+          box-shadow: none;
+        }
+      }
+      .sendIcon {
+        cursor: pointer;
+        margin-right: 1rem;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+}
