@@ -12,6 +12,7 @@ import ImgOne from "@/images/send-btn-2.svg";
 import TextArea from "@/components/Textarea/TextArea";
 import ChatGpt from "@/modules/chatGpt/ChatGpt";
 import styles from "./rootLayOut.module.scss";
+import Typewriter from "typewriter-effect";
 
 interface IchatPosition {
   isAiTyping?: boolean;
@@ -34,12 +35,12 @@ export default function RootLayout({
     {
       isAiTyping: false,
       isUserTyping: true,
-      text: "Hi, my self hemant",
+      text: "",
     },
     {
       isAiTyping: true,
       isUserTyping: false,
-      text: "Yeah tell me hemant",
+      text: "Hi, myself chat-gpt!",
     },
   ]);
 
@@ -126,7 +127,23 @@ export default function RootLayout({
                   } else if (item?.isAiTyping) {
                     return (
                       <div key={index} className={styles.leftWrapper}>
-                        <h3 className={styles.textLeft}>{item.text}</h3>
+                        <h3 className={styles.textLeft}>
+                          <Typewriter
+                            onInit={(typewriter) => {
+                              typewriter
+                                .typeString(item.text)
+                                // .callFunction(() => {
+                                //   console.log("String typed out!");
+                                // })
+                                // .pauseFor(2500)
+                                // .deleteAll()
+                                // .callFunction(() => {
+                                //   console.log("All strings were deleted");
+                                // })
+                                .start();
+                            }}
+                          />
+                        </h3>
                       </div>
                     );
                   }
