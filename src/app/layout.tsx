@@ -41,7 +41,7 @@ export default function RootLayout({
     {
       isAiTyping: true,
       isUserTyping: false,
-      text: "Welcome to hustle-up academy, how can I help you?",
+      text: "",
     },
   ]);
 
@@ -131,24 +131,30 @@ export default function RootLayout({
                     return (
                       <div key={index} className={styles.leftWrapper}>
                         <h3 className={styles.textLeft}>
-                          {item.text}
-                          {/* <Typewriter
-                            options={{ cursor: "" }}
-                            onInit={(typewriter) => {
-                              typewriter
-                                .typeString(item.text)
-                                .changeDelay(1)
-                                .callFunction(() => {
-                                  console.log("String typed out!");
-                                })
-                                // .pauseFor(2500)
-                                // .deleteAll()
-                                // .callFunction(() => {
-                                //   console.log("All strings were deleted");
-                                // })
-                                .start();
-                            }}
-                          /> */}
+                          {index === 1 ? (
+                            <span>
+                              Welcome to hustle-up academy,
+                              <br /> how can I help you?
+                            </span>
+                          ) : (
+                            <Typewriter
+                              options={{ cursor: "" }}
+                              onInit={(typewriter) => {
+                                typewriter
+                                  .typeString(item.text)
+                                  .changeDelay(1)
+                                  .callFunction(() => {
+                                    console.log("String typed out!");
+                                  })
+                                  // .pauseFor(2500)
+                                  // .deleteAll()
+                                  // .callFunction(() => {
+                                  //   console.log("All strings were deleted");
+                                  // })
+                                  .start();
+                              }}
+                            />
+                          )}
                         </h3>
                       </div>
                     );
