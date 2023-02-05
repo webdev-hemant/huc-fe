@@ -76,7 +76,7 @@ export default function RootLayout({
             <div className={styles["hover-text"]}>
               {!openChatBox ? (
                 <span className={styles["tooltip-text"]} id="topTooltip">
-                  I'm chat bot!
+                  I&apos;m chat bot!
                 </span>
               ) : null}
               <Image
