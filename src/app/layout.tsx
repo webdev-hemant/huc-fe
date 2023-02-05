@@ -159,10 +159,12 @@ export default function RootLayout({
               <div className={styles.botChatSection}>
                 <div className={styles.botchatInner}>
                   <TextArea
+                    rows={1}
                     textAreaStyleName={styles.customTextArea}
                     onChange={(e) => setChatBoxInput(e.target.value)}
                     value={chatBoxInput}
                     onKeyDown={handleOnKeyDown}
+                    placeholder="Ask here..."
                   />
                   {/* <BiSend className={styles.sendIcon} />
                    */}

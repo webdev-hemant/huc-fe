@@ -50,7 +50,7 @@
     .botBody {
       position: relative;
       padding: 1rem;
-      height: 65%;
+      height: 70%;
       width: 100%;
       color: #000;
       overflow-y: scroll;
@@ -89,7 +89,7 @@
     }
     .botChatSection {
       padding: 0 1rem;
-      height: 25%;
+      height: 20%;
       .botchatInner {
         padding-top: 0.3rem;
         border-radius: 0.5rem;
@@ -97,10 +97,14 @@
         align-items: center;
         justify-content: center;
         // gap: 1rem;
-        background: #2f2e2e;
+        background: rgb(74, 34, 24);
         .customTextArea {
+          &::placeholder {
+            color: #fff;
+          }
+          height: auto;
           border: none;
-          background: #2f2e2e;
+          background: rgb(74, 34, 24);
           color: #fff;
           &:focus {
             box-shadow: none;

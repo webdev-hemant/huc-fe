@@ -14,6 +14,7 @@ interface Iprops {
   required?: boolean;
   maxLength?: number;
   minLength?: number;
+  rows?: number;
   label?: string;
   inputStyle?: React.CSSProperties;
   divStyle?: React.CSSProperties;
@@ -28,11 +29,13 @@ const TextArea = (props: Iprops) => {
   const {
     // type = "text",
     placeholder = "",
+    onKeyDown,
     onChange,
     onFocus,
     getRef,
     onBlur,
     value,
+    rows = undefined,
     maxLength,
     minLength,
     required = false,
@@ -44,7 +47,6 @@ const TextArea = (props: Iprops) => {
     errorMessage = `*Please enter valid ${name}`,
     divStyleName = "",
     textAreaStyleName = "",
-    onKeyDown,
     ...rest
   } = props;
 
@@ -64,6 +66,8 @@ const TextArea = (props: Iprops) => {
         {label}
       </label>
       <textarea
+        // cols={}
+        rows={rows}
         ref={inputRef}
         // type={type}
         value={value}
