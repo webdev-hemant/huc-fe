@@ -59,12 +59,7 @@
       position: relative;
       padding: 1rem;
       height: 70%;
-      // height: 10rem;
       width: 100%;
-      // background-color: $color_2;
-      // display: flex;
-      // flex-direction: column;
-      // justify-content: flex-end;
       color: #000;
       overflow-y: scroll;
       -ms-overflow-style: none; /* IE and Edge */
@@ -72,31 +67,37 @@
       &::-webkit-scrollbar {
         display: none;
       }
-      // background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='550' height='560' preserveAspectRatio='none' viewBox='0 0 550 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1866%26quot%3b)' fill='none'%3e%3crect width='550' height='560' x='0' y='0' fill='url(%23SvgjsLinearGradient1867)'%3e%3c/rect%3e%3cpath d='M447.062%2c434.939C463.182%2c434.355%2c479.463%2c429.425%2c487.899%2c415.676C496.694%2c401.341%2c496.244%2c383.124%2c487.763%2c368.601C479.353%2c354.201%2c463.738%2c345.847%2c447.062%2c345.751C430.212%2c345.654%2c414.563%2c353.895%2c405.545%2c368.129C395.807%2c383.499%2c391.157%2c403.377%2c400.761%2c418.831C410.005%2c433.707%2c429.559%2c435.573%2c447.062%2c434.939' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M263.947%2c235.468C309.477%2c238.658%2c360.263%2c230.692%2c383.963%2c191.685C408.294%2c151.639%2c393.741%2c101.559%2c369.77%2c61.296C346.46%2c22.143%2c309.504%2c-10.851%2c263.947%2c-9.901C219.643%2c-8.977%2c185.444%2c25.983%2c165.5%2c65.555C147.617%2c101.038%2c149.987%2c142.306%2c169.907%2c176.687C189.77%2c210.968%2c224.424%2c232.699%2c263.947%2c235.468' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M218.889%2c213.173C234.942%2c212.5%2c248.846%2c202.077%2c255.918%2c187.65C262.24%2c174.754%2c257.845%2c160.36%2c250.957%2c147.757C243.679%2c134.44%2c234.064%2c119.771%2c218.889%2c119.9C203.835%2c120.028%2c195.523%2c135.4%2c187.755%2c148.296C179.594%2c161.845%2c169.221%2c176.737%2c176.064%2c190.997C183.519%2c206.531%2c201.674%2c213.894%2c218.889%2c213.173' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M208.40758267869984 207.8184024745336L156.0746137272987 320.0468165616252 268.3030278143903 372.3797855130264 320.63599676579145 260.1513714259347z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M3.627010435228808 333.62723886550805L124.74598864500304 382.5624825086137 173.6812322881087 261.44350429883946 52.562254078334476 212.5082606557338z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M573.287%2c770.908C627.342%2c772.874%2c685.555%2c759.113%2c712.959%2c712.477C740.631%2c665.385%2c723.47%2c608.19%2c696.967%2c560.43C669.433%2c510.813%2c629.97%2c463.422%2c573.287%2c460.779C512.794%2c457.958%2c455.317%2c493.898%2c427.87%2c547.88C402.508%2c597.762%2c419.61%2c656.042%2c450.173%2c702.917C477.616%2c745.007%2c523.074%2c769.081%2c573.287%2c770.908' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1866'%3e%3crect width='550' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='-0.45%25' y1='99.55%25' x2='100.45%25' y2='0.45%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1867'%3e%3cstop stop-color='rgba(14%2c 42%2c 71%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(212%2c 158%2c 103%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(212%2c 143%2c 103%2c 1)' offset='0.55'%3e%3c/stop%3e%3cstop stop-color='rgba(212%2c 143%2c 103%2c 1)' offset='0.7'%3e%3c/stop%3e%3cstop stop-color='rgba(212%2c 143%2c 103%2c 1)' offset='0.75'%3e%3c/stop%3e%3cstop stop-color='rgba(212%2c 143%2c 103%2c 1)' offset='0.77'%3e%3c/stop%3e%3cstop stop-color='rgba(212%2c 143%2c 103%2c 1)' offset='0.8'%3e%3c/stop%3e%3cstop stop-color='rgba(212%2c 143%2c 103%2c 1)' offset='0.93'%3e%3c/stop%3e%3cstop stop-color='rgba(212%2c 158%2c 103%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e");
       .leftWrapper {
         display: flex;
         justify-content: flex-start;
-        background-color: $color_1;
+        background-color: #fff;
         .textLeft {
+          padding: 0.5rem;
           font-size: 1rem;
-          font-weight: 600;
+          font-weight: 400;
+          color: #fff;
+          background-color: $color_6;
+          border-radius: 0.5rem 0.5rem 0.5rem 0;
         }
       }
       .rightWrapper {
+        margin: 0.5rem 0;
         display: flex;
         justify-content: flex-end;
-        background-color: $color_3;
+        background-color: #fff;
         .textRight {
+          padding: 0.5rem;
+          color: #000;
+          background-color: #cc9966;
           font-size: 1rem;
-          font-weight: 600;
+          font-weight: 400;
+          border-radius: 0.5rem 0.5rem 0 0.5rem;
         }
       }
     }
     .botChatSection {
-      // padding: 1.25rem 1rem 1rem 1rem;
       padding: 0 1rem;
       height: 20%;
-      // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       .botchatInner {
         padding-top: 0.3rem;
         border-radius: 0.5rem;

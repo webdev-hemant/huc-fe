@@ -13,6 +13,7 @@ import TextArea from "@/components/Textarea/TextArea";
 import ChatGpt from "@/modules/chatGpt/ChatGpt";
 import styles from "./rootLayOut.module.scss";
 import Typewriter from "typewriter-effect";
+import { cursorTo } from "readline";
 
 interface IchatPosition {
   isAiTyping?: boolean;
@@ -40,7 +41,7 @@ export default function RootLayout({
     {
       isAiTyping: true,
       isUserTyping: false,
-      text: "Hi, myself chat-gpt!",
+      text: "Welcome to hustle-up academy, how can I help you?",
     },
   ]);
 
@@ -121,20 +122,25 @@ export default function RootLayout({
                   if (item?.isUserTyping) {
                     return (
                       <div key={index} className={styles.rightWrapper}>
-                        <h3 className={styles.textRight}>{item.text}</h3>
+                        {item.text ? (
+                          <h3 className={styles.textRight}>{item.text}</h3>
+                        ) : null}
                       </div>
                     );
                   } else if (item?.isAiTyping) {
                     return (
                       <div key={index} className={styles.leftWrapper}>
                         <h3 className={styles.textLeft}>
-                          <Typewriter
+                          {item.text}
+                          {/* <Typewriter
+                            options={{ cursor: "" }}
                             onInit={(typewriter) => {
                               typewriter
                                 .typeString(item.text)
-                                // .callFunction(() => {
-                                //   console.log("String typed out!");
-                                // })
+                                .changeDelay(1)
+                                .callFunction(() => {
+                                  console.log("String typed out!");
+                                })
                                 // .pauseFor(2500)
                                 // .deleteAll()
                                 // .callFunction(() => {
@@ -142,7 +148,7 @@ export default function RootLayout({
                                 // })
                                 .start();
                             }}
-                          />
+                          /> */}
                         </h3>
                       </div>
                     );
