@@ -85,7 +85,6 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <body>
-        {/* <Header /> */}
         <main className={styles.mainWrapper}>
           {children}
           {openChatBox ? (
@@ -104,21 +103,8 @@ export default function RootLayout({
                       </div>
                     );
                   } else if (item?.isAiTyping) {
-                    console.log({
-                      length: chatDisplayPosition.length,
-                      index: index + 1,
-                    });
                     return (
                       <div key={index} className={styles.leftWrapper}>
-                        {/* {isLoading ? (
-                          <>
-                            {chatDisplayPosition.length === index + 1 ? (
-                              <TypingLoading />
-                            ) : (
-                              <h3 className={styles.textLeft}>{item.text}</h3>
-                            )}
-                          </>
-                        ) : ( */}
                         <h3 className={styles.textLeft}>
                           {index === 1 ? (
                             <span>
@@ -143,7 +129,6 @@ export default function RootLayout({
                             </>
                           )}
                         </h3>
-                        {/* // )} */}
                       </div>
                     );
                   }
@@ -167,8 +152,6 @@ export default function RootLayout({
                     onKeyDown={handleOnKeyDown}
                     placeholder="Ask here..."
                   />
-                  {/* <BiSend className={styles.sendIcon} />
-                   */}
                   <Image
                     onClick={() => handleOnclick()}
                     className={styles.sendIcon}
@@ -180,7 +163,25 @@ export default function RootLayout({
             </div>
           ) : null}
           <div
-            onClick={() => setOpenChatBox((prev) => !prev)}
+            onClick={() =>
+              setOpenChatBox((prev) => {
+                if (prev) {
+                  setChatDisplayPosition([
+                    {
+                      isAiTyping: false,
+                      isUserTyping: true,
+                      text: "",
+                    },
+                    {
+                      isAiTyping: true,
+                      isUserTyping: false,
+                      text: "",
+                    },
+                  ]);
+                }
+                return !prev;
+              })
+            }
             className={styles.chatIconWrapper}
           >
             <Image className={styles.chatIcon} src={chatImg} alt="" />
