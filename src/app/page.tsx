@@ -18,9 +18,9 @@ import { formSubmit } from "@/constantApi/formSubmit";
 import Spinner from "@/components/Spinner/Spinner";
 import { RxCross2 } from "react-icons/rx";
 import { ToastContainer, toast } from "react-toastify";
-import SecondSection from "@/modules/HomeSeconSection/SecondSection";
+import RoadMapFirst from "@/modules/HomePage/Roadmap/First/RoadMapFirst";
+import AboutUs from "@/modules/aboutMe/AboutUs";
 import styles from "./homePage.module.scss";
-import AboutMe from "@/modules/aboutMe/AboutMe";
 
 interface IAllError {
   nameError: boolean;
@@ -165,11 +165,19 @@ export default function Home() {
               className={styles.description}
               // onClick={() => setShowModal(true)}
             >
-              Gain Industry standard knowledge and know current market
-              requirement with the help of <b>working professionals. </b>
-              Build and showcase real world projects!
+              {/* HUSTLE-UP ACADEMY is an online platform that provides you with the
+              tools necessary to improve and hone your technical skills, helping
+              you attain your ideal tech career.
+              <br /> */}
+              <br /> We help you gain the skills you need to reach your goals.
+              We are committed to helping you create and develop a tech career
+              path that will lead you to your{" "}
+              <b>ideal employers around the world</b>, based on your abilities,
+              qualifications, and preferences.
             </h6>
-            <p className={styles.learnSkill}>BATCH MARCH 15 2023</p>
+            <p className={styles.learnSkill}>
+              Batch React Js Developer <br /> 30 MARCH 2023
+            </p>
             <button
               type="button"
               onClick={() => setShowModal(true)}
@@ -186,32 +194,32 @@ export default function Home() {
           <div className={styles.dropShadow} />
         </div>
       </div>
-      <div className={styles.bgCover}>
+      {/* <div className={styles.bgCover}>
         <Image src={pilotBG} alt="" />
-      </div>
-      <AboutMe />
-      <div className={styles.secondSection}>
-        <SecondSection />
+      </div> */}
+      <AboutUs />
+      <div className={styles.roadMapWrapper}>
+        <RoadMapFirst />
         <div className={styles.linesWrapper}>
           <Image src={firstLine} alt="" />
         </div>
-        <SecondSection />
+        <RoadMapFirst />
         <div className={styles.linesWrapper}>
           <Image src={secondLine} alt="" />
         </div>
-        <SecondSection />
+        <RoadMapFirst />
         <div className={styles.linesWrapper}>
           <Image src={thirdLine} alt="" />
         </div>
-        <SecondSection />
+        <RoadMapFirst />
         <div className={styles.linesWrapper}>
           <Image src={fourthLine} alt="" />
         </div>
-        <SecondSection />
+        <RoadMapFirst />
         <div className={styles.linesWrapper}>
           <Image src={fifthLine} alt="" />
         </div>
-        <SecondSection />
+        <RoadMapFirst />
       </div>
       {/* <CustomSlider
         SliderData={[

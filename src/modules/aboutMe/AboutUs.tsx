@@ -2,10 +2,10 @@ import Image from "next/image";
 import SocialMediaComponents from "./socialmedia/SocialMediaComponents";
 // import Primarysvg from "@/images/primarysvg";
 // import Link from "next/link";
-import illustratorOne from "@/images/illustration-1.jpg";
+import illustratorOne from "@/images/working-professionals.jpg";
 import styles from "./aboutMe.module.scss";
 
-const AboutMe = () => {
+const AboutUs = () => {
   return (
     <section className={styles.introductionWrapper}>
       <div className={styles.imageContainer}>
@@ -39,4 +39,4 @@ const AboutMe = () => {
   );
 };
 
-export default AboutMe;
+export default AboutUs;
