@@ -2,15 +2,17 @@
 
 .fistRoadmapwrapper {
   // min-height: 100vh;
-  width: 60vw;
+  width: 70vw;
   @media screen and (max-width: 768px) {
     width: 90vw;
   }
   .firstTitle {
     padding-top: 2rem;
+    margin-bottom: 2rem;
     text-align: center;
     @media screen and (max-width: 768px) {
       padding: 0;
+      margin-bottom: 2rem;
     }
     h3 {
       // font-family: $font_lobster;

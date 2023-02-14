@@ -207,7 +207,7 @@ export default function Home() {
       <AboutUs />
       <div className={styles.roadMapWrapper}>
         <RoadMapFirst />
-        <div className={styles.linesWrapper}>
+        {/* <div className={styles.linesWrapper}>
           <Image src={firstLine} alt="" />
         </div>
         <RoadMapFirst />
@@ -226,7 +226,7 @@ export default function Home() {
         <div className={styles.linesWrapper}>
           <Image src={fifthLine} alt="" />
         </div>
-        <RoadMapFirst />
+        <RoadMapFirst /> */}
       </div>
       {/* <CustomSlider
         SliderData={[

@@ -5,11 +5,17 @@
   align-items: center;
   gap: 2rem;
   .iconWrapper {
-    width: 80px;
-    .icon {
-      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-      border-radius: 50%;
+    width: 5rem;
+    display: flex;
+    justify-content: center;
+    svg,
+    img {
+      width: 5rem;
     }
+    // .icon {
+    //   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    //   border-radius: 50%;
+    // }
   }
   .textWrapper {
     display: flex;
