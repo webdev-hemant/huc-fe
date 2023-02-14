@@ -34,6 +34,11 @@ interface IAllError {
   yearOfStudyError: boolean;
 }
 
+interface IsubmitPosition {
+  state: boolean;
+  positionX: string;
+}
+
 export default function Home() {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -55,6 +60,11 @@ export default function Home() {
     yearOfStudyError: false,
   });
 
+  const [submitPosition, setSubmitPosition] = useState<IsubmitPosition>({
+    state: false,
+    positionX: "0",
+  });
+
   const resetForm = () => {
     setAllInput({
       name: "",
@@ -63,7 +73,17 @@ export default function Home() {
       email: "",
       yearOfStudy: "",
     });
+    resetAllErrors();
   };
+
+  const resetAllErrors = () =>
+    setIsAllError({
+      nameError: false,
+      mobileError: false,
+      emailError: false,
+      collegeNameError: false,
+      yearOfStudyError: false,
+    });
 
   const handleBlur = (
     event:
@@ -71,7 +91,7 @@ export default function Home() {
       | React.FocusEvent<HTMLTextAreaElement, Element>
   ) => {
     const { name, value } = event.target;
-    console.log({ name, value });
+
     switch (name) {
       case "name":
         setIsAllError((prev) => ({ ...prev, nameError: value.length < 3 }));
@@ -101,6 +121,8 @@ export default function Home() {
         }));
         break;
     }
+    isEveryThingOKay() &&
+      setSubmitPosition((prev) => ({ ...prev, positionX: "0" }));
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -125,13 +147,30 @@ export default function Home() {
     setAllInput((prev) => {
       return { ...prev, [name]: value };
     });
+    isEveryThingOKay() &&
+      setSubmitPosition((prev) => ({ ...prev, positionX: "0" }));
   };
 
-  const handleFormSubmit = async () => {
+  const isEveryThingOKay = (): boolean => {
     const isNoError = Object.values(allError).every((v) => v == false);
     const isNotEmty = Object.values(allInput).every((v) => !!v == true);
     const isEveryThingOKay = isNoError && isNotEmty;
-    if (isEveryThingOKay) {
+    return isEveryThingOKay;
+  };
+
+  const handleMouseEnter = () => {
+    if (isEveryThingOKay()) {
+      setSubmitPosition((prev) => ({ ...prev, positionX: "0" }));
+    } else {
+      setSubmitPosition((prev) => ({
+        positionX: prev.state ? "5rem" : "-5rem",
+        state: !prev.state,
+      }));
+    }
+  };
+
+  const handleFormSubmit = async () => {
+    if (isEveryThingOKay()) {
       setIsLoading(true);
       formSubmit(allInput).then((res) => {
         // if (res.Created === 201) {
@@ -151,6 +190,11 @@ export default function Home() {
         console.log(res);
         // }
       });
+    } else {
+      setSubmitPosition((prev) => ({
+        positionX: prev.state ? "5rem" : "-5rem",
+        state: !prev.state,
+      }));
     }
   };
 
@@ -268,6 +312,8 @@ export default function Home() {
               className={`text-white font-medium uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 ${styles.registerButton}`}
               type="button"
               onClick={() => handleFormSubmit()}
+              onMouseEnter={() => handleMouseEnter()}
+              style={{ transform: `translateX(${submitPosition.positionX})` }}
             >
               Register{isLoading ? <Spinner /> : null}
             </button>
