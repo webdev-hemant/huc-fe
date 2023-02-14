@@ -21,6 +21,10 @@ import { ToastContainer, toast } from "react-toastify";
 import RoadMapFirst from "@/modules/HomePage/Roadmap/First/RoadMapFirst";
 import AboutUs from "@/modules/aboutMe/AboutUs";
 import styles from "./homePage.module.scss";
+import {
+  FormInputConstants,
+  IFormInputConstant,
+} from "@/constants/FormInputConstants";
 
 interface IAllError {
   nameError: boolean;
@@ -67,7 +71,7 @@ export default function Home() {
       | React.FocusEvent<HTMLTextAreaElement, Element>
   ) => {
     const { name, value } = event.target;
-
+    console.log({ name, value });
     switch (name) {
       case "name":
         setIsAllError((prev) => ({ ...prev, nameError: value.length < 3 }));
@@ -245,58 +249,20 @@ export default function Home() {
               className={styles.crossIcon}
             />
           </div>
-          <Input
-            type="text"
-            name="name"
-            value={allInput.name}
-            onChange={handleInputChange}
-            placeholder="Enter your name"
-            label="Full name"
-            onBlur={handleBlur}
-            isError={allError.nameError}
-          />
-          <Input
-            type="text"
-            name="mobile"
-            value={allInput.mobile}
-            onChange={handleInputChange}
-            placeholder="Enter your mobile number"
-            label="Mobile number"
-            onBlur={handleBlur}
-            isError={allError.mobileError}
-          />
-          <Input
-            type="text"
-            name="email"
-            value={allInput.email}
-            onChange={handleInputChange}
-            placeholder="Enter your email"
-            label="Email address"
-            onBlur={handleBlur}
-            isError={allError.emailError}
-          />
-          <Input
-            type="text"
-            name="collegeName"
-            value={allInput.collegeName}
-            onChange={handleInputChange}
-            placeholder="Enter college name"
-            label="College name"
-            onBlur={handleBlur}
-            isError={allError.collegeNameError}
-            errorMessage="*Please enter college name"
-          />
-          <Input
-            type="text"
-            name="yearOfStudy"
-            value={allInput.yearOfStudy}
-            onChange={handleInputChange}
-            placeholder="Enter highest qualification"
-            label="Year of study / Highest qualification"
-            onBlur={handleBlur}
-            isError={allError.yearOfStudyError}
-            errorMessage="*Please enter highest qualification"
-          />
+          {FormInputConstants.map((item: IFormInputConstant) => (
+            <Input
+              key={item.name}
+              type={item.type}
+              name={item.name}
+              placeholder={item.placeholder}
+              label={item.label}
+              errorMessage={item?.errorMessage}
+              value={allInput[item.value]}
+              isError={allError[item.isError]}
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+            />
+          ))}
           <div className="flex items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
             <button
               className={`text-white font-medium uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 ${styles.registerButton}`}
