@@ -23,6 +23,7 @@ import {
 } from "@/constants/FormInputConstants";
 import Intro from "@/modules/HomePage/firstSection/Intro";
 import styles from "./homePage.module.scss";
+import ContactForm from "@/modules/HomePage/ContactUs/ContactForm";
 
 interface IAllError {
   nameError: boolean;
@@ -196,6 +197,27 @@ export default function Home() {
     }
   };
 
+  const FormInputField = () => {
+    return (
+      <>
+        {FormInputConstants.map((item: IFormInputConstant) => (
+          <Input
+            key={item.name}
+            type={item.type}
+            name={item.name}
+            placeholder={item.placeholder}
+            label={item.label}
+            errorMessage={item?.errorMessage}
+            value={allInput[item.value]}
+            isError={allError[item.isError]}
+            onChange={handleInputChange}
+            onBlur={handleBlur}
+          />
+        ))}
+      </>
+    );
+  };
+
   return (
     <div className={styles.pageWrapper}>
       <Header
@@ -207,26 +229,6 @@ export default function Home() {
       <AboutUs />
       <div className={styles.roadMapWrapper}>
         <RoadMapFirst />
-        {/* <div className={styles.linesWrapper}>
-          <Image src={firstLine} alt="" />
-        </div>
-        <RoadMapFirst />
-        <div className={styles.linesWrapper}>
-          <Image src={secondLine} alt="" />
-        </div>
-        <RoadMapFirst />
-        <div className={styles.linesWrapper}>
-          <Image src={thirdLine} alt="" />
-        </div>
-        <RoadMapFirst />
-        <div className={styles.linesWrapper}>
-          <Image src={fourthLine} alt="" />
-        </div>
-        <RoadMapFirst />
-        <div className={styles.linesWrapper}>
-          <Image src={fifthLine} alt="" />
-        </div>
-        <RoadMapFirst /> */}
       </div>
       {/* <CustomSlider
         SliderData={[
@@ -238,6 +240,9 @@ export default function Home() {
           { image: illustrator, imgHeight: 400, imgWidth: 400, alt: "photo" },
         ]}
       /> */}
+      <ContactForm handleFormSubmit={handleFormSubmit} isLoading={isLoading}>
+        <FormInputField />
+      </ContactForm>
       <Modal showModal={showModal} modalNumber={2}>
         <div
           className={`px-5 border-0 rounded-lg shadow-lg relative w-full bg-white outline-none focus:outline-none ${styles.modalWrapper}`}
@@ -252,20 +257,7 @@ export default function Home() {
               className={styles.crossIcon}
             />
           </div>
-          {FormInputConstants.map((item: IFormInputConstant) => (
-            <Input
-              key={item.name}
-              type={item.type}
-              name={item.name}
-              placeholder={item.placeholder}
-              label={item.label}
-              errorMessage={item?.errorMessage}
-              value={allInput[item.value]}
-              isError={allError[item.isError]}
-              onChange={handleInputChange}
-              onBlur={handleBlur}
-            />
-          ))}
+          <FormInputField />
           <div className="flex items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
             <button
               className={`text-white font-medium uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 ${styles.registerButton}`}
