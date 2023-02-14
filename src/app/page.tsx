@@ -21,8 +21,8 @@ import {
   FormInputConstants,
   IFormInputConstant,
 } from "@/constants/FormInputConstants";
-import styles from "./homePage.module.scss";
 import Intro from "@/modules/HomePage/firstSection/Intro";
+import styles from "./homePage.module.scss";
 
 interface IAllError {
   nameError: boolean;
