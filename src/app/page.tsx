@@ -2,15 +2,12 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import Header from "@/components/Header/Header";
 import Image from "next/image";
-import illustrator from "@/images/illustrator-1.png";
-// import imageCustom from "@/images/og-logo.png";
 // import CustomSlider from "@/customHooks/customSlider/Slider";
 import firstLine from "@/images/firstLIne.svg";
 import secondLine from "@/images/secondLine.svg";
 import thirdLine from "@/images/thirdLine.svg";
 import fourthLine from "@/images/fourthLIne.svg";
 import fifthLine from "@/images/fifthLine.svg";
-import pilotBG from "@/images/pilot-bg.jpg";
 import Modal from "@/components/Modal/Modal";
 import Input from "@/components/Input/Input";
 import { IForm } from "@/constants/Ssologin";
@@ -20,11 +17,12 @@ import { RxCross2 } from "react-icons/rx";
 import { ToastContainer, toast } from "react-toastify";
 import RoadMapFirst from "@/modules/HomePage/Roadmap/First/RoadMapFirst";
 import AboutUs from "@/modules/aboutMe/AboutUs";
-import styles from "./homePage.module.scss";
 import {
   FormInputConstants,
   IFormInputConstant,
 } from "@/constants/FormInputConstants";
+import styles from "./homePage.module.scss";
+import Intro from "@/modules/HomePage/firstSection/Intro";
 
 interface IAllError {
   nameError: boolean;
@@ -205,46 +203,7 @@ export default function Home() {
         setShowNav={setShowNav}
         showNav={showNav}
       />
-      <div className={styles.firstSection}>
-        <div className={styles.introWrapper}>
-          <div className={styles.introWrapper_Inner}>
-            <h3 className={styles.teachingIsWhat}>HUSTLE-UP ACADEMY</h3>
-            <h6
-              className={styles.description}
-              // onClick={() => setShowModal(true)}
-            >
-              {/* HUSTLE-UP ACADEMY is an online platform that provides you with the
-              tools necessary to improve and hone your technical skills, helping
-              you attain your ideal tech career.
-              <br /> */}
-              <br /> We help you gain the skills you need to reach your goals.
-              We are committed to helping you create and develop a tech career
-              path that will lead you to your{" "}
-              <b>ideal employers around the world</b>, based on your abilities,
-              qualifications, and preferences.
-            </h6>
-            <p className={styles.learnSkill}>
-              Batch React Js Developer <br /> 30 MARCH 2023
-            </p>
-            <button
-              type="button"
-              onClick={() => setShowModal(true)}
-              className={`${styles.hireTutorButton} ${
-                !showNav && styles.position_unset
-              }`}
-            >
-              JOIN NOW
-            </button>
-          </div>
-        </div>
-        <div className={styles.introImgWrapper}>
-          <Image src={illustrator} alt="" />
-          <div className={styles.dropShadow} />
-        </div>
-      </div>
-      {/* <div className={styles.bgCover}>
-        <Image src={pilotBG} alt="" />
-      </div> */}
+      <Intro setShowModal={setShowModal} showNav={showNav} />
       <AboutUs />
       <div className={styles.roadMapWrapper}>
         <RoadMapFirst />

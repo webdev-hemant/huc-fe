@@ -1,0 +1,117 @@
+@import "@/styles/base.module.scss";
+
+.firstSection {
+  height: calc(100vh - 7.25rem);
+  padding: 2rem 5rem;
+  // background-color: black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column: auto;
+  gap: 2rem;
+  // background: linear-gradient(180deg, #ffffff 0%, #9c6137 100%);
+  // background: linear-gradient(
+  //   270deg,
+  //   rgba(156, 97, 55, 0.64) 21.15%,
+  //   #ffffff 100%
+  // );
+  @media screen and (max-width: 768px) {
+    padding: 2rem 1rem;
+    grid-template-columns: 1fr;
+    height: unset;
+  }
+  .introWrapper {
+    display: flex;
+    // align-items: center;
+    justify-content: flex-end;
+    .introWrapper_Inner {
+      margin-top: 5rem;
+      width: 80%;
+      @media screen and (max-width: 768px) {
+        margin-top: 0;
+        width: 100%;
+      }
+      .teachingIsWhat {
+        font-size: 3rem;
+        font-weight: 600;
+        line-height: 1.1;
+      }
+      .description {
+        margin: 1rem 0 2rem 0;
+        font-size: 1.2rem;
+        font-weight: 400;
+        line-height: 1.1;
+        letter-spacing: -0.25px;
+        word-wrap: 2px;
+      }
+      .learnSkill {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+        font-weight: 600;
+        // color: $color_5;
+      }
+      .hireTutorButton {
+        position: relative;
+        z-index: 2;
+        padding: 10px 24px;
+        // min-width: 94px;
+        // min-height: 25px;
+        background: $color_6;
+        border-radius: 2px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 15px;
+        color: #fff;
+        transition: all 0.2s linear;
+        letter-spacing: 0.0625rem;
+        &.position_unset {
+          position: unset;
+        }
+        &:hover {
+          border: 0.0938rem solid $clr_1;
+          box-shadow: 0.125rem 0.125rem 0.625rem $color_7;
+          letter-spacing: 0.1563rem;
+          border-radius: unset;
+        }
+      }
+    }
+  }
+  .introImgWrapper {
+    height: 80vh;
+    // display: flex;
+    // align-items: center;
+    // justify-content: flex-end;
+    // flex-direction: column;
+    @media screen and (max-width: 768px) {
+      height: 80vh;
+    }
+    img {
+      position: relative;
+      width: 100%;
+      height: calc(100% - 3rem);
+      position: relative;
+      z-index: 3;
+      object-fit: contain;
+      @media screen and (max-width: 768px) {
+        z-index: 1;
+        margin-top: -4rem;
+      }
+    }
+    .dropShadow {
+      margin-top: -2rem;
+      margin-left: 4rem;
+      border-radius: 50%;
+      height: 1.3125rem;
+      width: 18.75rem;
+      position: relative;
+      z-index: 1;
+      background-color: #000;
+      filter: blur(25px);
+      @media screen and (min-width: 768px) {
+        position: absolute;
+        bottom: 10%;
+        left: 62%;
+        z-index: 1;
+      }
+    }
+  }
+}
