@@ -1,8 +1,8 @@
 export const NavArray: string[] = [
-  "Home",
+  // "Home",
   // "Courses",
-  "Tutors",
-  "About us",
+  // "Tutors",
+  // "About us",
   // "Contact us",
   "Join now",
 ];

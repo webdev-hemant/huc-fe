@@ -22,8 +22,9 @@ import {
   IFormInputConstant,
 } from "@/constants/FormInputConstants";
 import Intro from "@/modules/HomePage/firstSection/Intro";
-import styles from "./homePage.module.scss";
 import ContactForm from "@/modules/HomePage/ContactUs/ContactForm";
+import Footer from "@/components/Footer/Footer";
+import styles from "./homePage.module.scss";
 
 interface IAllError {
   nameError: boolean;
@@ -243,6 +244,7 @@ export default function Home() {
       <ContactForm handleFormSubmit={handleFormSubmit} isLoading={isLoading}>
         <FormInputField />
       </ContactForm>
+      <Footer />
       <Modal showModal={showModal} modalNumber={2}>
         <div
           className={`px-5 border-0 rounded-lg shadow-lg relative w-full bg-white outline-none focus:outline-none ${styles.modalWrapper}`}

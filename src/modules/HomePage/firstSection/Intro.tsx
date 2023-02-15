@@ -93,7 +93,10 @@ const Intro = ({ setShowModal, showNav }: IProps) => {
           </button>
         </div>
       </div>
-      <div id="introImgWrapper" className={styles.introImgWrapper}>
+      <div
+        id="introImgWrapper"
+        className={`${styles.introImgWrapper} ${showNav || styles.zIndexOne}`}
+      >
         <Image src={illustrator} alt="" />
         <div className={styles.dropShadow} />
       </div>

@@ -2,12 +2,10 @@
 
 .contactWrapper {
   padding-top: 4rem;
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    height: unset;
-    min-height: 100vh;
     // margin-bottom: 0;
   }
   .registerNowHeadline {
@@ -40,6 +38,7 @@
       width: 50%;
       display: flex;
       justify-content: center;
+      align-items: center;
       // background-color: red;
       @media screen and (max-width: 768px) {
         width: 100%;
