@@ -10,13 +10,14 @@ const Footer = () => {
     <div className={styles.footerWrapper}>
       <div className={styles.logoWrapper}>
         <Image width={90} src={ogLogo} alt="" />
+        <h4 className={`${styles.followUsText} sm:hidden`}>Follow Us</h4>
       </div>
       <div className={styles.followUsWrapper}>
-        <h4 className={styles.followUsText}>Follow Us</h4>
+        <h4 className={`${styles.followUsText} hidden sm:block`}>Follow Us</h4>
         <SocialMediaComponents />
       </div>
       <div className={styles.copyRightWrapper}>
-        <p className={styles.copyRightText}>
+        <p className={`${styles.copyRightText}`}>
           Copyright ©{`${new Date().getFullYear()}`} All rights reserved | This
           platform is made by{" "}
           <Link target="_blank" href="https://crazy-developer.vercel.app/">

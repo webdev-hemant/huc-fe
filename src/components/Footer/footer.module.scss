@@ -15,8 +15,15 @@
   }
   .logoWrapper {
     padding-top: 2rem;
-    // display: flex;
-    // justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    .followUsText {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bolder;
+    }
   }
   .followUsWrapper {
     display: flex;
@@ -32,6 +39,9 @@
     // margin-top: 1rem;
     .copyRightText {
       word-spacing: 3px;
+      @media screen and (max-width: 768px) {
+        padding: 1rem 1rem;
+      }
       .nameBranding {
         font-weight: 600;
         color: rgb(247, 147, 30);
