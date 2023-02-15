@@ -8,9 +8,15 @@ interface Iprops {
   children: React.ReactNode;
   handleFormSubmit: any;
   isLoading: boolean;
+  batchDate: string;
 }
 
-const ContactForm = ({ children, handleFormSubmit, isLoading }: Iprops) => {
+const ContactForm = ({
+  children,
+  handleFormSubmit,
+  isLoading,
+  batchDate = "",
+}: Iprops) => {
   return (
     <div className={styles.contactWrapper}>
       <h3 className={styles.registerNowHeadline}>Register now</h3>
@@ -23,7 +29,7 @@ const ContactForm = ({ children, handleFormSubmit, isLoading }: Iprops) => {
             className={`px-5 border-0 rounded-lg  relative w-full bg-white outline-none focus:outline-none ${styles.modalWrapper}`}
           >
             <h3 className="text-2xl font-bold text-center">
-              Batch 30-MARCH 2023
+              Batch {batchDate}
             </h3>
 
             {children}

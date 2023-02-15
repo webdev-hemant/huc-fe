@@ -7,9 +7,10 @@ import gsap from "gsap";
 interface IProps {
   setShowModal: React.Dispatch<SetStateAction<boolean>>;
   showNav: boolean;
+  batchDate: string;
 }
 
-const Intro = ({ setShowModal, showNav }: IProps) => {
+const Intro = ({ setShowModal, showNav, batchDate = "" }: IProps) => {
   const timeline = gsap.timeline({
     // repeat: 1,
     defaults: {
@@ -80,7 +81,7 @@ const Intro = ({ setShowModal, showNav }: IProps) => {
             based on your abilities, qualifications, and preferences.
           </h6>
           <p className={styles.learnSkill}>
-            Batch React Js Developer <br /> 30 MARCH 2023
+            Batch React Js Developer <br /> {batchDate}
           </p>
           <button
             type="button"

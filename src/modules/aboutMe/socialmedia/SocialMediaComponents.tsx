@@ -1,4 +1,4 @@
-import github from "@/images/github.png";
+import instagram from "@/images/instagram.svg";
 import linkedin from "@/images/linkedin.png";
 import gmail from "@/images/gmail.png";
 import twitter from "@/images/twitter.png";
@@ -14,19 +14,19 @@ interface Isocial {
 
 const iconMap: Isocial[] = [
   {
-    name: "github",
-    img: github,
-    route: "https://github.com/webdev-hemant",
+    name: "instagram",
+    img: instagram,
+    route: "https://www.instagram.com/hustleupacademy/",
   },
   {
     name: "linkedIn",
     img: linkedin,
-    route: "https://www.linkedin.com/in/hemant-jadhav-a3533818a/",
+    route: "https://www.linkedin.com/company/hustle-up-academy/",
   },
   {
     name: "gmail",
     img: gmail,
-    route: "mailto:webdev.hemant@gmail.com",
+    route: "mailto:hustleupacademy@gmail.com",
   },
   {
     name: "twitter",
@@ -40,10 +40,8 @@ const SocialMediaComponents = () => {
     <div className={styles.socialWrapper}>
       {iconMap.map((item: Isocial) => (
         <div key={item.name}>
-          <Link href={item.route}>
-            {/* <a target="_blank"> */}
+          <Link target="_blank" href={item.route}>
             <Image src={item.img} width={50} height={50} alt={item.name} />
-            {/* </a> */}
           </Link>
         </div>
       ))}

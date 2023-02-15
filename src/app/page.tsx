@@ -43,6 +43,7 @@ export default function Home() {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showNav, setShowNav] = useState<boolean>(true);
+  const [batchDate, setBatchDate] = useState<string>("1 April 2023");
 
   const [allInput, setAllInput] = useState<IForm>({
     name: "",
@@ -226,7 +227,11 @@ export default function Home() {
         setShowNav={setShowNav}
         showNav={showNav}
       />
-      <Intro setShowModal={setShowModal} showNav={showNav} />
+      <Intro
+        batchDate={batchDate}
+        setShowModal={setShowModal}
+        showNav={showNav}
+      />
       <AboutUs />
       <div className={styles.roadMapWrapper}>
         <RoadMapFirst />
@@ -241,7 +246,11 @@ export default function Home() {
           { image: illustrator, imgHeight: 400, imgWidth: 400, alt: "photo" },
         ]}
       /> */}
-      <ContactForm handleFormSubmit={handleFormSubmit} isLoading={isLoading}>
+      <ContactForm
+        batchDate={batchDate}
+        handleFormSubmit={handleFormSubmit}
+        isLoading={isLoading}
+      >
         <FormInputField />
       </ContactForm>
       <Footer />

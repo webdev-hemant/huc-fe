@@ -19,7 +19,11 @@
     // justify-content: center;
   }
   .followUsWrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
     .followUsText {
+      text-align: center;
       font-size: 1.5rem;
       font-weight: bolder;
     }
