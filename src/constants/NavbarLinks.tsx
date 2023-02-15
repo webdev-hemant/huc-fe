@@ -1,5 +1,5 @@
 export const NavArray: string[] = [
-  // "Home",
+  "Home",
   // "Courses",
   // "Tutors",
   // "About us",

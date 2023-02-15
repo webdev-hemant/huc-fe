@@ -3,4 +3,7 @@
 .footerWrapper {
   background-color: #000;
   min-height: 20rem;
+  @media screen and (max-width: 768px) {
+    margin-top: 2rem;
+  }
 }
