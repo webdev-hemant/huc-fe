@@ -199,27 +199,6 @@ export default function Home() {
     }
   };
 
-  const FormInputField = () => {
-    return (
-      <>
-        {FormInputConstants.map((item: IFormInputConstant) => (
-          <Input
-            key={item.name}
-            type={item.type}
-            name={item.name}
-            placeholder={item.placeholder}
-            label={item.label}
-            errorMessage={item?.errorMessage}
-            value={allInput[item.value]}
-            isError={allError[item.isError]}
-            onChange={handleInputChange}
-            onBlur={handleBlur}
-          />
-        ))}
-      </>
-    );
-  };
-
   return (
     <div className={styles.pageWrapper}>
       <Header
@@ -251,7 +230,20 @@ export default function Home() {
         handleFormSubmit={handleFormSubmit}
         isLoading={isLoading}
       >
-        <FormInputField />
+        {FormInputConstants.map((item: IFormInputConstant) => (
+          <Input
+            key={item.name}
+            type={item.type}
+            name={item.name}
+            placeholder={item.placeholder}
+            label={item.label}
+            errorMessage={item?.errorMessage}
+            value={allInput[item.value]}
+            isError={allError[item.isError]}
+            onChange={handleInputChange}
+            onBlur={handleBlur}
+          />
+        ))}
       </ContactForm>
       <Footer />
       <Modal showModal={showModal} modalNumber={2}>
@@ -268,7 +260,20 @@ export default function Home() {
               className={styles.crossIcon}
             />
           </div>
-          <FormInputField />
+          {FormInputConstants.map((item: IFormInputConstant) => (
+            <Input
+              key={item.name}
+              type={item.type}
+              name={item.name}
+              placeholder={item.placeholder}
+              label={item.label}
+              errorMessage={item?.errorMessage}
+              value={allInput[item.value]}
+              isError={allError[item.isError]}
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+            />
+          ))}
           <div className="flex items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
             <button
               className={`text-white font-medium uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 ${styles.registerButton}`}
